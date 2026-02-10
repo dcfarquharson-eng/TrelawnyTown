@@ -86,36 +86,41 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            max-width: 1200px;
+            max-width: 1400px;
+            /* Increased max-width for bigger layout */
             width: 100%;
-            gap: 4rem;
-            /* Space between image and text */
+            gap: 5rem;
+            /* More space between image and text */
         }
 
         .hero-image-wrapper {
-            flex: 0 0 350px;
-            /* Fixed width for image container */
+            flex: 0 0 450px;
+            /* Increased from 350px to 450px */
+            /* Removed rotation for a straight, commanding look */
             position: relative;
         }
 
         .hero-image-wrapper img {
             width: 100%;
             height: auto;
-            border: 8px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 10px solid rgba(255, 255, 255, 0.15);
+            /* Thicker border */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            /* Deeper shadow */
             border-radius: 4px;
-            transform: rotate(-2deg);
-            /* Artistic tilt */
+            /* transform: rotate(-2deg); REMOVED TILT */
         }
 
         .hero-caption {
             display: block;
             text-align: center;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            opacity: 0.8;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            /* Slightly larger caption */
+            opacity: 0.9;
             font-style: italic;
             color: var(--gold-accent);
+            letter-spacing: 1px;
         }
 
         .hero-content {
@@ -125,23 +130,26 @@
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
+            /* Larger Title */
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             font-weight: normal;
             letter-spacing: 2px;
-            border-bottom: 3px solid var(--gold-accent);
+            border-bottom: 4px solid var(--gold-accent);
             display: inline-block;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             line-height: 1.1;
         }
 
         .hero-content p {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
+            /* Larger Quote text */
             font-style: italic;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            opacity: 0.9;
+            opacity: 0.95;
+            line-height: 1.4;
         }
 
         /* Updated Text Block for Image Layout */
@@ -183,7 +191,7 @@
         } */
 
         /* Mobile Responsive */
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
             .hero-container {
                 flex-direction: column;
                 text-align: center;
