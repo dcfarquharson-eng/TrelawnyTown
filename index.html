@@ -102,6 +102,57 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
+        /* Updated Text Block for Image Layout */
+        .text-block-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            text-align: left;
+            margin-bottom: 2rem;
+            background: #fff;
+            padding: 2rem;
+            border-left: 5px solid var(--forest-green);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 0 0 300px;
+            /* Fixed width for image */
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            border: 5px solid #fff;
+        }
+
+        .caption {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .text-block-container {
+                flex-direction: column-reverse;
+            }
+
+            .hero-image {
+                flex: auto;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
         /* CONTENT SECTIONS */
         .section {
             padding: 4rem 2rem;
@@ -212,12 +263,20 @@
     <div class="section">
         <h2>A History Written in Blood and Fire</h2>
 
-        <div class="text-block">
-            <p>For over 40 years, we have meticulously researched the true story of the Trelawny Town Maroons. This is
-                not the colonial history found in textbooks. This is the story of a free people who defied an empire.
-            </p>
-            <p>From the rugged limestone cliffs of the Cockpit Country to the frozen shores of Nova Scotia and the coast
-                of Sierra Leone, the Maroon journey is one of resilience, betrayal, and unyielding dignity.</p>
+        <div class="text-block-container">
+            <div class="text-content">
+                <p>For over 40 years, we have meticulously researched the true story of the Trelawny Town Maroons. This
+                    is not the colonial history found in textbooks. This is the story of a free people who defied an
+                    empire.</p>
+                <p>From the rugged limestone cliffs of the Cockpit Country to the frozen shores of Nova Scotia and the
+                    coast of Sierra Leone, the Maroon journey is one of resilience, betrayal, and unyielding dignity.
+                </p>
+            </div>
+
+            <div class="hero-image">
+                <img src="leonard parkinson.jpg" alt="Captain Leonard Parkinson, Maroon Leader">
+                <span class="caption">Captain Leonard Parkinson<br>Maroon Leader (c. 1795)</span>
+            </div>
         </div>
 
         <div class="timeline">
