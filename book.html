@@ -17,8 +17,8 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--parchment);
-            color: var(--text-dark);
+            background-color: var(--forest-green);
+            color: #fff;
             font-family: 'Georgia', serif;
             line-height: 1.6;
         }
@@ -100,15 +100,23 @@
         }
 
         .book-card {
-            background: #fff;
-            border: 1px solid #ddd;
+            background: transparent;
+            border: none;
             padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
             text-align: left;
             margin-top: -100px;
             /* Pull up over hero */
             position: relative;
             z-index: 10;
+        }
+
+        .text-block {
+            background: transparent;
+            color: #fff;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border-left: 5px solid var(--maroon-red);
         }
 
         h2 {
@@ -118,10 +126,17 @@
             text-align: center;
         }
 
-        p {
-            font-size: 1.2rem;
+        h3 {
+            color: var(--gold-accent);
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
             margin-bottom: 1.5rem;
-            color: #444;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #eee;
         }
 
         .chapter-list {
