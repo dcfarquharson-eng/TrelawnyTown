@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy - The Magnetic Mind Institute</title>
+    <style>
+        :root {
+            --primary-navy: #0a192f;
+            --accent-gold: #c5a059;
+            --text-white: #e6f1ff;
+            --nav-bg: rgba(10, 25, 47, 0.95);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-navy);
+            color: var(--text-white);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--nav-bg);
+            z-index: 1000;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-brand {
+            font-weight: bold;
+            color: var(--accent-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-gold);
+            opacity: 1;
+        }
+
+        /* MAIN CONTENT */
+        .page-content {
+            margin-top: 100px;
+            /* Clear Nav */
+            padding: 4rem 2rem;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+            border-bottom: 2px solid rgba(197, 160, 89, 0.3);
+            padding-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        h2 {
+            color: #fff;
+            margin-top: 3rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #bdc6db;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: rgba(197, 160, 89, 0.05);
+            border-left: 4px solid var(--accent-gold);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">The Magnetic Mind</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="philosophy.html" class="nav-link active">Philosophy</a>
+            <a href="archives.html" class="nav-link">Research</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="fellowship.html" class="nav-link">Fellowship</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <h1>Rationale & Philosophy</h1>
+
+        <p>The Magnetic Mind Institute was founded on a singular premise: that consciousness is the fundamental
+            architecture of reality. We exist to explore the intersection of ancient wisdom traditions and the frontiers
+            of modern thought.</p>
+
+        <div class="highlight-box">
+            <h3>"The Mind is the Master Power that moulds and makes, And Man is Mind, and evermore he takes The tool of
+                Thought, and, shaping what he wills, Brings forth a thousand joys, a thousand ills."</h3>
+            <span style="display:block; margin-top:10px; color:var(--accent-gold); font-style:italic;">— James
+                Allen</span>
+        </div>
+
+        <h2>Our Core Pillars</h2>
+        <p><strong>1. The Subconscious Mind:</strong> The part of you that is responsible for 95% of your results. We
+            teach you how to impress new ideas onto it to change your vibration, and thus your results.</p>
+
+        <p><strong>2. Universal Laws:</strong> Success is not a secret, it is a system. We study the Laws of Vibration,
+            Polarity, Rhythm, Cause and Effect, and Gender to understand how the universe operates.</p>
+
+        <p><strong>3. Paradigm Shifts:</strong> A paradigm is a multitude of habits. To change your life, you must
+            change your paradigm. We provide the tools to rewrite your mental programming.</p>
+
+        <h2>Leadership</h2>
+        <p>The Institute is led by a council of researchers and thought leaders dedicated to the preservation of
+            knowledge and the advancement of human potential. Established in 2026, we are building a legacy for the next
+            century.</p>
+
+    </div>
+
+    <footer>
+        &copy; 2026 The Magnetic Mind Institute. All Rights Reserved.
+    </footer>
+
+</body>
+
+</html>
