@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Book - Trelawny Town Maroons</title>
+    <style>
+        :root {
+            --maroon-red: #800000;
+            --forest-green: #2e4d32;
+            --parchment: #fdfbf7;
+            --text-dark: #2c2c2c;
+            --gold-accent: #d4af37;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--parchment);
+            color: var(--text-dark);
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            background-color: var(--maroon-red);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--gold-accent);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem 1rem;
+            transition: background 0.3s;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cockpit_Country.jpg/1200px-Cockpit_Country.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-bottom: 3px solid var(--gold-accent);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* CONTENT */
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .book-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin-top: -100px;
+            /* Pull up over hero */
+            position: relative;
+            z-index: 10;
+        }
+
+        h2 {
+            color: var(--maroon-red);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+
+        .chapter-list {
+            margin: 2rem 0;
+            padding-left: 2rem;
+            border-left: 4px solid var(--forest-green);
+        }
+
+        .chapter-list li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .cta-button {
+            display: block;
+            background-color: var(--maroon-red);
+            color: #fff;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 3rem;
+            transition: background 0.3s;
+            text-align: center;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button:hover {
+            background-color: var(--forest-green);
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 5px solid var(--gold-accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Trelawny Town</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="history.html" class="nav-link">The History</a>
+            <a href="war.html" class="nav-link">The 1795 War</a>
+            <a href="book.html" class="nav-link active">The Book</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>The Unconquered</h1>
+            <p style="font-size:1.5rem; font-style:italic; margin-top:1rem;">The Untold Story of the Trelawny Town
+                Maroons</p>
+        </div>
+    </div>
+
+    <div class="content-container">
+
+        <div class="book-card">
+            <h2>About the Book</h2>
+            <p><strong>The Magnetic Mind Institute</strong> is proud to present a groundbreaking new work of historical
+                non-fiction. Drawing on over 40 years of original research, digitised archives, and oral histories, this
+                book challenges the colonial narrative of the Second Maroon War.</p>
+
+            <p>We invite you to journey with us from the blood-soaked hills of Jamaica to the frozen exile of Nova
+                Scotia, and finally to the shores of Sierra Leone.</p>
+
+            <h3>Featured Chapters:</h3>
+            <ul class="chapter-list">
+                <li><strong>Chapter 1: The Blood Oath</strong> - The complexity of the 1738 Treaty.</li>
+                <li><strong>Chapter 3: The Spark</strong> - The whipping incident that ignited a war.</li>
+                <li><strong>Chapter 4: The Ambush</strong> - Colonel Sandford's folly and the Invisible Army.</li>
+                <li><strong>Chapter 6: The Betrayal</strong> - Balcarres, Walpole, and the lie that exiled a nation.
+                </li>
+            </ul>
+
+            <p style="margin-top:2rem; font-style:italic; text-align:center;">Coming 2026.</p>
+
+            <a href="#" class="cta-button">Join the Waitlist</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TrelawnyTown.com. Dedicated to the Ancestors.</p>
+    </footer>
+
+</body>
+
+</html>
