@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Trelawny Town Maroons</title>
+    <style>
+        :root {
+            --maroon-red: #800000;
+            --forest-green: #2e4d32;
+            --parchment: #fdfbf7;
+            --text-dark: #2c2c2c;
+            --gold-accent: #d4af37;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--parchment);
+            color: var(--text-dark);
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            background-color: var(--maroon-red);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--gold-accent);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem 1rem;
+            transition: background 0.3s;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--gold-accent);
+        }
+
+        /* HERO SECTION */
+        .page-header {
+            background: linear-gradient(rgba(46, 77, 50, 0.9), rgba(46, 77, 50, 0.9)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cockpit_Country.jpg/1200px-Cockpit_Country.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 3rem;
+            border-bottom: 5px solid var(--gold-accent);
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            font-style: italic;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            flex: 1;
+        }
+
+        .text-block {
+            background: #fff;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border-left: 5px solid var(--maroon-red);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--maroon-red);
+            font-size: 2rem;
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+
+        .dedication {
+            text-align: center;
+            font-style: italic;
+            color: var(--forest-green);
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(46, 77, 50, 0.05);
+            border-radius: 5px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #1a1a1a;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 5px solid var(--gold-accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Trelawny Town</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link active">About</a>
+            <a href="history.html" class="nav-link">The History</a>
+            <a href="war.html" class="nav-link">The 1795 War</a>
+            <a href="book.html" class="nav-link">The Book</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>About the Research</h1>
+        <p>Correcting the Record. Honoring the Ancestors.</p>
+    </div>
+
+    <div class="container">
+
+        <div class="text-block">
+            <h2>40 Years of Discovery</h2>
+            <p>
+                This website is the culmination of over four decades of meticulous research into the history of the
+                Trelawny Town Maroons. For too long, the narrative of the Maroons has been told through the eyes of
+                their oppressors—colonial governors, British military officers, and plantation owners.
+            </p>
+            <p>
+                Our mission has been to peel back the layers of colonial bias to reveal the truth about a free people
+                who maintained their sovereignty in the face of the British Empire. We have scoured archives in Jamaica,
+                Nova Scotia, Sierra Leone, and London, piecing together the fragmented story of the 1795 War and the
+                subsequent betrayal that led to the exile of an entire community.
+            </p>
+        </div>
+
+        <div class="text-block" style="border-left-color: var(--forest-green);">
+            <h2>Why This Matters</h2>
+            <p>
+                The story of Trelawny Town is not just Jamaican history; it is a global story of resistance, diplomacy,
+                and survival. The Trelawny Maroons were not "savages" as depicted in colonial logs, but sophisticated
+                strategists who fought a superpower to a standstill.
+            </p>
+            <p>
+                By digitizing these records and presenting this comprehensive history, we aim to restore the dignity of
+                Captain Leonard Parkinson, Montague James, and the hundreds of men, women, and children who were
+                forcibly removed from their beloved Cockpit Country.
+            </p>
+        </div>
+
+        <div class="dedication">
+            "We speak for those whose voices were silenced by the wind and the waves. We remember Trelawny Town."
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TrelawnyTown.com. Dedicated to the Ancestors of Trelawny Town.</p>
+    </footer>
+
+</body>
+
+</html>
