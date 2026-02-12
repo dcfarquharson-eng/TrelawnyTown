@@ -1,0 +1,488 @@
+:root {
+    /* Color Palette */
+    --maroon-red: #800000;
+    --maroon-dark: #5a0000;
+    --forest-green: #2e4d32;
+    --forest-dark: #1a2e1d;
+    --parchment: #fdfbf7;
+    --paper-texture: #f4ecd8;
+    --text-dark: #2c2c2c;
+    --gold-accent: #d4af37;
+    --gold-dim: #b8962e;
+}
+
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--forest-green);
+    color: var(--text-dark);
+    font-family: 'Fauna One', serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+.nav-brand,
+.hero-caption,
+.cta-button {
+    font-family: 'Cinzel', serif;
+}
+
+/* NAVIGATION BAR */
+.navbar {
+    background-color: var(--maroon-red);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--gold-accent);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-brand {
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #ffd;
+    text-decoration: none;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    font-family: 'Cinzel', serif;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(212, 175, 55, 0.2);
+    /* Gold subtle bg */
+    color: var(--gold-accent);
+}
+
+/* Mobile Menu Toggle (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--gold-accent);
+    cursor: pointer;
+}
+
+/* HERO SECTION (Homepage) */
+.hero {
+    background: linear-gradient(to right, rgba(46, 77, 50, 0.95), rgba(46, 77, 50, 0.8)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cockpit_Country.jpg/1200px-Cockpit_Country.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1400px;
+    width: 100%;
+    gap: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image-wrapper {
+    flex: 0 0 450px;
+    position: relative;
+    animation: fadeInRight 1.2s ease-out;
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+    height: auto;
+    border: 8px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    border-radius: 2px;
+}
+
+.hero-caption {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: var(--gold-accent);
+    letter-spacing: 1.5px;
+}
+
+.hero-content {
+    flex: 1;
+    text-align: left;
+    animation: fadeInLeft 1.2s ease-out;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    line-height: 1.1;
+    color: #fff;
+    border-bottom: 3px solid var(--gold-accent);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 3rem;
+    opacity: 0.95;
+    line-height: 1.6;
+    max-width: 600px;
+    color: #e0e0e0;
+}
+
+/* PAGE HEADER (Internal Pages) */
+.page-header {
+    background: linear-gradient(rgba(46, 77, 50, 0.92), rgba(46, 77, 50, 0.92)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cockpit_Country.jpg/1200px-Cockpit_Country.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 2rem;
+    text-align: center;
+    color: #fff;
+    border-bottom: 5px solid var(--gold-accent);
+    margin-bottom: 3rem;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    color: var(--gold-accent);
+}
+
+.page-header p {
+    font-size: 1.4rem;
+    font-style: italic;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* CONTENT SECTIONS */
+.section,
+.container {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.text-block {
+    background: rgba(253, 251, 247, 0.05);
+    /* Very subtle light bg */
+    color: #fdfbf7;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    border-left: 5px solid var(--gold-accent);
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0 5px 5px 0;
+}
+
+/* Light text block for dark backgrounds overrides */
+.light-mode .text-block {
+    color: var(--text-dark);
+    background: #fff;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--gold-accent);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 1rem;
+}
+
+/* TIMELINE */
+.timeline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.event-card {
+    background: rgba(20, 20, 20, 0.6);
+    padding: 2rem;
+    width: 280px;
+    text-align: center;
+    border: 1px solid var(--gold-accent);
+    border-top: 6px solid var(--gold-accent);
+    transition: transform 0.3s, background 0.3s;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    background: rgba(46, 77, 50, 0.8);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.event-year {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gold-accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Cinzel', serif;
+}
+
+.event-card h3 {
+    margin: 0.5rem 0 1rem;
+    font-size: 1.3rem;
+}
+
+/* BUTTONS */
+.cta-button {
+    display: inline-block;
+    background-color: var(--maroon-red);
+    color: #fff;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2rem;
+    transition: all 0.3s;
+    border: 1px solid var(--maroon-red);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #5a0000;
+    border-color: var(--gold-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* FOOTER */
+footer {
+    background-color: #111;
+    color: #888;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: auto;
+    /* Push to bottom */
+    border-top: 4px solid var(--gold-accent);
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--gold-accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ANIMATIONS */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1000px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+        /* Show hamburger */
+    }
+
+    .nav-links {
+        display: none;
+        /* Hide links by default */
+        width: 100%;
+        flex-direction: column;
+        padding-top: 1rem;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+        /* Show when active */
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding-top: 2rem;
+    }
+
+    .hero-content {
+        text-align: center;
+        animation: fadeInUp 1s ease-out;
+        order: 2;
+    }
+
+    .hero-image-wrapper {
+        flex: auto;
+        max-width: 80%;
+        margin: 0 auto;
+        order: 1;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .section,
+    .container {
+        padding: 3rem 1.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* SPECIAL COMPONENTS (Migrated from specific pages) */
+
+/* history.html */
+.quote-box {
+    background: transparent;
+    border-left: 5px solid var(--gold-accent);
+    padding: 2rem;
+    margin: 2rem 0;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #eee;
+    font-family: 'Cinzel', serif;
+}
+
+/* war.html */
+.highlight-red {
+    background: rgba(128, 0, 0, 0.2);
+    /* Slightly darker for legibility */
+    color: #ffcccc;
+    /* Lighter text for contrast on dark bg */
+    padding: 1.5rem;
+    border-left: 5px solid var(--maroon-red);
+    font-weight: bold;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* book.html */
+.book-card {
+    background: rgba(0, 0, 0, 0.3);
+    /* Slight darkness to pop against hero */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    text-align: left;
+    margin-top: -60px;
+    /* Pull up over hero */
+    position: relative;
+    z-index: 10;
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+}
+
+.chapter-list {
+    margin: 2rem 0;
+    padding-left: 2rem;
+    border-left: 4px solid var(--gold-accent);
+    /* Changed to Gold for better visibility */
+    list-style-type: none;
+}
+
+.chapter-list li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #eee;
+    padding-left: 1rem;
+}
+
+.chapter-list li strong {
+    color: var(--gold-accent);
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    font-family: 'Cinzel', serif;
+}

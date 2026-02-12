@@ -5,137 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our History - Trelawny Town Maroons</title>
-    <style>
-        :root {
-            --maroon-red: #800000;
-            --forest-green: #2e4d32;
-            --parchment: #fdfbf7;
-            --text-dark: #2c2c2c;
-            --gold-accent: #d4af37;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--forest-green);
-            color: #fff;
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION BAR */
-        .navbar {
-            background-color: var(--maroon-red);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid var(--gold-accent);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-brand {
-            font-family: 'Times New Roman', serif;
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1.2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.5rem 1rem;
-            transition: background 0.3s;
-            border-radius: 4px;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* PAGE HEADER */
-        .page-header {
-            background-color: var(--forest-green);
-            color: #fff;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 5px solid var(--gold-accent);
-        }
-
-        .page-header h1 {
-            font-size: 3rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .content-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        h2 {
-            color: var(--maroon-red);
-            font-size: 2rem;
-            border-bottom: 2px solid var(--gold-accent);
-            padding-bottom: 10px;
-            margin-top: 3rem;
-        }
-
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #eee;
-        }
-
-        .quote-box {
-            background: transparent;
-            border-left: 5px solid var(--gold-accent);
-            padding: 2rem;
-            margin: 2rem 0;
-            font-style: italic;
-            font-size: 1.3rem;
-            color: #eee;
-        }
-
-        .text-block {
-            background: transparent;
-            color: #fff;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            border-left: 5px solid var(--maroon-red);
-        }
-
-        footer {
-            background-color: #1a1a1a;
-            color: #888;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            border-top: 5px solid var(--gold-accent);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
     <nav class="navbar">
         <a href="index.html" class="nav-brand">Trelawny Town</a>
+        <div class="menu-toggle">&#9776;</div>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
             <a href="about.html" class="nav-link">About</a>
