@@ -53,10 +53,66 @@
 
             <p style="margin-top:2rem; font-style:italic; text-align:center;">Coming 2026.</p>
 
-            <a href="#" class="cta-button">Join the Waitlist</a>
+            <!-- Waitlist Form -->
+            <div id="waitlist-section"
+                style="margin-top: 2rem; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 4px;">
+                <h3 style="margin-top: 0; color: var(--gold-accent);">Join the Trelawny Town Society</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 15px;">Enter your email to join the waitlist and receive an
+                    exclusive preview of the <strong>Cockpit Country Maps</strong>.</p>
+
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <input type="email" id="waitlist-email" placeholder="Your Email Address"
+                        style="flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 2px; font-family: 'Cinzel', serif;">
+                    <button onclick="joinWaitlist()" class="cta-button"
+                        style="margin-top: 0; border: none; cursor: pointer;">Join Now</button>
+                </div>
+                <p id="waitlist-msg" style="margin-top: 10px; font-size: 0.9rem; min-height: 20px;"></p>
+            </div>
         </div>
 
     </div>
+
+    <script>
+        const API_BASE = "https://backend-deploy-hlq8.onrender.com/api";
+
+        async function joinWaitlist() {
+            const emailInput = document.getElementById('waitlist-email');
+            const msg = document.getElementById('waitlist-msg');
+            const email = emailInput.value.trim();
+
+            if (!email || !email.includes('@')) {
+                msg.textContent = "Please enter a valid email address.";
+                msg.style.color = "#ff6b6b";
+                return;
+            }
+
+            msg.textContent = "Joining...";
+            msg.style.color = "#ccc";
+
+            try {
+                const res = await fetch(`${API_BASE}/trelawny/join_waitlist`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email })
+                });
+
+                const data = await res.json();
+
+                if (data.status === 'ok') {
+                    msg.innerHTML = "<strong>Welcome to the Society.</strong> Check your email for your exclusive preview.";
+                    msg.style.color = "var(--gold-accent)";
+                    emailInput.value = "";
+                } else {
+                    msg.textContent = data.message || "Something went wrong.";
+                    msg.style.color = "#ff6b6b";
+                }
+            } catch (e) {
+                console.error(e);
+                msg.textContent = "Server connection error. Please try again later.";
+                msg.style.color = "#ff6b6b";
+            }
+        }
+    </script>
 
     <footer>
         <p>&copy; 2026 TrelawnyTown.com. Dedicated to the Ancestors.</p>
