@@ -477,30 +477,31 @@ footer a:hover {
 }
 
 .parchment-doc {
-    background: url('Pictures/treaty_of_1738_parchment.png') no-repeat center center;
-    background-size: cover;
-    color: #2e1a0f;
-    padding: 3rem 4rem;
-    border-radius: 2px;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    background: url('Pictures/blank_parchment_seal.png') no-repeat top center;
+    background-size: 100% 100%;
+    color: #3e2723;
+    padding: 8rem 6rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     font-family: 'Cinzel', serif;
     position: relative;
-    transform: rotate(-1deg);
-    margin: 2rem 0;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin: 4rem auto;
+    width: 95%;
+    max-width: 1000px;
+    /* Ensure aspect ratio is maintained or fits text */
+    min-height: 1400px;
+    display: block;
+    transform: none;
+    /* Remove rotation for better reading of long text */
 }
 
 .parchment-doc h3 {
     text-align: center;
-    border-bottom: 2px solid #2e1a0f;
+    border-bottom: 2px solid #5c4033;
     padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.7rem;
-    color: #1a0f08;
-    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4);
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    color: #3e2723;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
 }
 
 .parchment-doc ul {
@@ -509,11 +510,13 @@ footer a:hover {
 }
 
 .parchment-doc li {
-    margin-bottom: 1rem;
-    font-size: 1.15rem;
-    border-bottom: 1px dashed rgba(46, 26, 15, 0.4);
-    padding-bottom: 0.5rem;
-    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    line-height: 1.6;
+    font-weight: 500;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 .quote-box {
