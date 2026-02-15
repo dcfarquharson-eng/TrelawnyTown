@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <Style id="4">
+            <IconStyle id="5">
+                <colorMode>normal</colorMode>
+                <scale>1</scale>
+                <heading>0</heading>
+                <Icon id="6">
+                    <href>http://maps.google.com/mapfiles/kml/shapes/camp.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="9">
+            <IconStyle id="10">
+                <colorMode>normal</colorMode>
+                <scale>1</scale>
+                <heading>0</heading>
+                <Icon id="11">
+                    <href>http://maps.google.com/mapfiles/kml/shapes/arrow.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="14">
+            <LineStyle id="15">
+                <color>ff0000ff</color>
+                <colorMode>normal</colorMode>
+                <width>5</width>
+            </LineStyle>
+        </Style>
+        <Style id="18">
+            <LineStyle id="19">
+                <color>ffff0000</color>
+                <colorMode>normal</colorMode>
+                <width>3</width>
+            </LineStyle>
+        </Style>
+        <Style id="22">
+            <LineStyle id="23">
+                <color>ff00a5ff</color>
+                <colorMode>normal</colorMode>
+                <width>3</width>
+            </LineStyle>
+        </Style>
+        <Camera>
+            <longitude>-77.77</longitude>
+            <latitude>18.363677</latitude>
+            <altitude>2000</altitude>
+            <heading>240</heading>
+            <tilt>60</tilt>
+        </Camera>
+        <Placemark id="3">
+            <name>The New Town</name>
+            <description>The area captured by Sandford before advancing.</description>
+            <styleUrl>#4</styleUrl>
+            <Point id="2">
+                <coordinates>-77.783844,18.348677,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="8">
+            <name>The Fatal Turn</name>
+            <description>Where Sandford turned right to destroy the provision grounds, entering the trap.</description>
+            <styleUrl>#9</styleUrl>
+            <Point id="7">
+                <coordinates>-77.783953,18.349176999999997,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="13">
+            <name>The Defile (Ambush Zone)</name>
+            <description>The narrow track where Maroons fired from the heights.</description>
+            <styleUrl>#14</styleUrl>
+            <LineString id="12">
+                <coordinates>-77.783953,18.349176999999997,0.0 -77.783033,18.348677,0.0 -77.781,18.347676999999997,0.0</coordinates>
+            </LineString>
+        </Placemark>
+        <Placemark id="17">
+            <name>Path 1: via Shaw Castle</name>
+            <styleUrl>#18</styleUrl>
+            <LineString id="16">
+                <coordinates>-77.77,18.365,0.0 -77.79,18.358,0.0 -77.788,18.355,0.0 -77.786,18.35,0.0 -77.783844,18.348677,0.0</coordinates>
+            </LineString>
+        </Placemark>
+        <Placemark id="21">
+            <name>Path 2: via Shingle Hut</name>
+            <styleUrl>#22</styleUrl>
+            <LineString id="20">
+                <coordinates>-77.77,18.365,0.0 -77.775,18.36,0.0 -77.778,18.355,0.0 -77.786,18.35,0.0 -77.783844,18.348677,0.0</coordinates>
+            </LineString>
+        </Placemark>
+    </Document>
+</kml>
