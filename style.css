@@ -18,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--forest-green);
-    color: var(--text-dark);
+    color: var(--parchment);
     font-family: 'Fauna One', serif;
     line-height: 1.8;
     overflow-x: hidden;
@@ -201,7 +201,8 @@ h4,
 
 /* CONTENT SECTIONS */
 .section,
-.container {
+.container,
+.content-container {
     padding: 4rem 2rem;
     max-width: 1000px;
     margin: 0 auto;
