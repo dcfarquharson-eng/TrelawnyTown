@@ -477,31 +477,57 @@ footer a:hover {
 }
 
 .parchment-doc {
-    background: url('Pictures/blank_parchment_seal.png') no-repeat top center;
+    background: url('Pictures/treaty_parchment_blank_center.png') no-repeat center center;
     background-size: 100% 100%;
-    color: #3e2723;
-    padding: 8rem 6rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    font-family: 'Cinzel', serif;
+    color: #2e1a0f;
+    padding: 6rem 5rem 6rem 5rem;
+    /* Adjust based on image border thickness */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    font-family: 'Dancing Script', cursive;
+    /* Handwriting font */
     position: relative;
-    margin: 4rem auto;
-    width: 95%;
-    max-width: 1000px;
-    /* Ensure aspect ratio is maintained or fits text */
-    min-height: 1400px;
-    display: block;
-    transform: none;
-    /* Remove rotation for better reading of long text */
+    transform: rotate(0deg);
+    margin: 3rem auto;
+    width: 90%;
+    max-width: 800px;
+    height: 1000px;
+    /* Fixed height to match aspect ratio roughly */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    /* Hide overflow from the main container */
+}
+
+/* Inner container for scrolling text to avoid stretching the background */
+.parchment-doc-content {
+    overflow-y: auto;
+    height: 100%;
+    padding-right: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: #5c4033 transparent;
+}
+
+/* Custom Scrollbar for Webkit */
+.parchment-doc-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.parchment-doc-content::-webkit-scrollbar-thumb {
+    background-color: #5c4033;
+    border-radius: 3px;
 }
 
 .parchment-doc h3 {
     text-align: center;
     border-bottom: 2px solid #5c4033;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-    font-size: 2.2rem;
-    color: #3e2723;
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    /* Larger for script font */
+    color: #2e1a0f;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
 }
 
 .parchment-doc ul {
@@ -510,13 +536,13 @@ footer a:hover {
 }
 
 .parchment-doc li {
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    /* Larger for script font readability */
     border-bottom: none;
     padding-bottom: 0;
-    line-height: 1.6;
+    line-height: 1.4;
     font-weight: 500;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 .quote-box {
