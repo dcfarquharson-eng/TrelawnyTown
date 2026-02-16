@@ -12,7 +12,43 @@
 }
 
 /* Typography */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&family=Dancing+Script:wght@400;700&display=swap');
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&family=Pinyon+Script&display=swap');
+
+/* ... (skipping unchanged lines) ... */
+
+.parchment-doc {
+    background: url('Pictures/treaty_parchment_blank_center.png') no-repeat center center;
+    background-size: 100% 100%;
+    color: #2e1a0f;
+    padding: 6rem 5rem 6rem 5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    font-family: 'Pinyon Script', cursive;
+    /* Authentic 18th-century style */
+    position: relative;
+    transform: rotate(0deg);
+    margin: 3rem auto;
+    width: 90%;
+    max-width: 800px;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.dedicated-parchment {
+    max-width: 1000px;
+    /* Wider for the full treaty page */
+    height: 85vh;
+    /* Take up most of the screen height */
+    width: 95%;
+    margin-top: 1rem;
+    padding: 5rem 4rem;
+    /* Slightly less padding to fit more text */
+}
+
+/* Inner container for scrolling text to avoid stretching the background */
 
 body {
     margin: 0;
@@ -483,8 +519,8 @@ footer a:hover {
     padding: 6rem 5rem 6rem 5rem;
     /* Adjust based on image border thickness */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    font-family: 'Dancing Script', cursive;
-    /* Handwriting font */
+    font-family: 'Pinyon Script', cursive;
+    /* Authentic 18th-century style */
     position: relative;
     transform: rotate(0deg);
     margin: 3rem auto;
@@ -497,6 +533,17 @@ footer a:hover {
     justify-content: flex-start;
     overflow: hidden;
     /* Hide overflow from the main container */
+}
+
+.dedicated-parchment {
+    max-width: 1000px;
+    /* Wider for the full treaty page */
+    height: 80vh;
+    /* Take up most of the screen height */
+    width: 95%;
+    margin-top: 1rem;
+    padding: 5rem 4rem;
+    /* Slightly less padding to fit more text */
 }
 
 /* Inner container for scrolling text to avoid stretching the background */
