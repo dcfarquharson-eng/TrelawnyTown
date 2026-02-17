@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treaty Snapshot</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            width: 1600px;
+            /* High resolution width */
+            height: 2400px;
+            /* High resolution height */
+            font-family: 'Pinyon Script', cursive;
+        }
+
+        .treaty-container {
+            width: 100%;
+            height: 100%;
+            background: url('Pictures/treaty_parchment_blank_center.png');
+            background-size: cover;
+            /* Fill the area */
+            background-position: center;
+            position: relative;
+            padding: 180px 150px;
+            /* Generous padding for realism */
+            box-sizing: border-box;
+            color: #2b1d0e;
+        }
+
+        /* Overlay for authentic ink feel */
+        .ink-layer {
+            width: 100%;
+            height: 100%;
+            mix-blend-mode: multiply;
+            opacity: 0.9;
+            filter: blur(0.4px) contrast(1.2);
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 5rem;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            border-bottom: 3px double rgba(43, 29, 14, 0.4);
+            padding-bottom: 1rem;
+            transform: rotate(-1deg);
+            font-weight: 400;
+        }
+
+        .preamble {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            padding: 0 4rem;
+            line-height: 1.4;
+            transform: rotate(0.5deg);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            columns: 2;
+            /* Two columns like some historical documents, or 1? User said "one piece". 15 articles fit better in 2 columns? */
+            column-gap: 4rem;
+        }
+
+        /* Let's keep it 1 column but smaller text to fit on "one piece" */
+        ul.one-col {
+            columns: 1;
+        }
+
+        li {
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+            /* Smaller to fit all 15 */
+            line-height: 1.2;
+            text-align: left;
+            text-indent: 2rem;
+            page-break-inside: avoid;
+        }
+
+        li strong {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Organic variations */
+        li:nth-child(odd) {
+            transform: rotate(0.2deg);
+        }
+
+        li:nth-child(even) {
+            transform: rotate(-0.1deg);
+        }
+
+        .footer {
+            margin-top: 3rem;
+            text-align: right;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="treaty-container">
+        <div class="ink-layer">
+            <h3>Articles of Pacification (1738)</h3>
+            <div class="preamble">
+                In the name of God, Amen. Whereas Captain Cudjoe, Captain Accompong, Captain Johnny, Captain Cuffee,
+                Captain Quaco... have been in a state of war and hostility... they mutually, sincerely, and amicably,
+                have agreed to the following articles:
+            </div>
+            <ul class="one-col">
+                <li><strong>I.</strong> That all hostilities shall cease on both sides for ever.</li>
+                <li><strong>II.</strong> That the said Captain Cudjoe, the rest of his captains, adherents, and men
+                    shall be for ever hereafter in a perfect state of freedom and liberty.</li>
+                <li><strong>III.</strong> That they shall enjoy and possess, for themselves and posterity for ever, all
+                    the lands situate and lying between Trelawney Town and the Cockpits, to the amount of fifteen
+                    hundred acres.</li>
+                <li><strong>IV.</strong> That they shall have liberty to plant the said lands with coffee, cocoa,
+                    ginger, tobacco, and cotton, and to breed cattle, hogs, goats, or any other stock.</li>
+                <li><strong>V.</strong> That Captain Cudjoe, and all the Captain's adherents, shall all live together
+                    within the bounds of Trelawney Town, and hunt where they think fit.</li>
+                <li><strong>VI.</strong> That the said Captain Cudjoe, and his successors, do use their best endeavours
+                    to take, kill, suppress, or destroy all rebels wheresoever they be.</li>
+                <li><strong>VII.</strong> That in case this island be invaded by any foreign enemy, the said Captain
+                    Cudjoe shall immediately repair to any place the Governor shall appoint to repel invaders.</li>
+                <li><strong>VIII.</strong> That if any white man shall do injury to Captain Cudjoe or his people, they
+                    shall apply to any magistrate for justice; and vice versa.</li>
+                <li style="color: #4a0000;"><strong>IX.</strong> That if any negroes shall hereafter run away from their
+                    masters and fall into Captain Cudjoe's hands, they shall immediately be sent back.</li>
+                <li><strong>X.</strong> That all negroes taken, since the raising of this party by Captain Cudjoe's
+                    people, shall immediately be returned.</li>
+                <li><strong>XI.</strong> That Captain Cudjoe, and his successors, shall wait on his Excellency, or the
+                    Commander in Chief for the time being, every year.</li>
+                <li><strong>XII.</strong> That Captain Cudjoe shall have full power to inflict punishment for crimes
+                    committed by his men, death only excepted.</li>
+                <li><strong>XIII.</strong> That Captain Cudjoe shall cut, clear, and keep open large and convenient
+                    roads from Trelawney Town to Westmorland and St. James's.</li>
+                <li><strong>XIV.</strong> That two white men shall constantly live and reside with Captain Cudjoe and
+                    his successors to maintain friendly correspondence.</li>
+                <li><strong>XV.</strong> That Captain Cudjoe shall be Chief Commander in Trelawney Town; succeeded by
+                    Accompong, Johnny, Cuffee, Quaco, and then by Governor's appointment.</li>
+            </ul>
+            <div class="footer">
+                Signatures, this 1st day of March, 1738. <br>
+                <em>Cudjoe X his mark</em>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

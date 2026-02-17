@@ -5,156 +5,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Treaty - Trelawny Town Maroons</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=7">
     <script src="script.js" defer></script>
     <style>
-        /* FORCE OVERRIDE: Realistic Document Styles */
-        @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-
+        /* Page Styles override for the Treaty Image View */
         body {
             background-color: #2e4d32;
-            /* Forest Green background for the page */
+            /* Forest Green match */
             margin: 0;
             overflow-x: hidden;
-            font-family: 'Pinyon Script', cursive;
+            font-family: 'Times New Roman', serif;
         }
 
-        .parchment-doc {
-            /* 1. INFINITE SCROLL PARCHMENT */
-            background: url('Pictures/treaty_parchment_blank_center.png');
-            background-color: #e3dac1;
-            background-size: 100% auto;
-            background-repeat: repeat-y;
-            background-attachment: local;
-
-            /* 2. REAL INK & MARGINS */
-            color: #2b1d0e;
-            /* Deep Sepia/Iron Gall Ink */
-            padding: 5rem 6rem;
-            /* Wide margins */
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 120px rgba(0, 0, 0, 0.3);
-
-            /* 3. REFERENCE FONT MATCH */
-            font-family: 'Pinyon Script', cursive;
-            font-size: 2.2rem;
-            /* Legible but transformative size */
-            line-height: 1.6;
-            font-weight: 400;
-
-            /* Layout */
-            position: relative;
-            margin: 2rem auto;
-            width: 90%;
+        /* Container for the Treaty Image */
+        .replica-container {
+            width: 95%;
             max-width: 1000px;
-            min-height: 100vh;
+            margin: 40px auto;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in forwards;
+        }
+
+        .replica-intro {
+            color: #d4af37;
+            /* Gold */
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .replica-sub {
+            color: #bdc6db;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .replica-img {
+            width: 100%;
+            height: auto;
             display: block;
-
-            /* Organic Feel */
-            transform: rotate(-0.2deg);
-            /* Very slight skew */
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            /* Deep shadow for floating effect */
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease;
         }
 
-        .dedicated-parchment {
-            margin: 2rem auto !important;
-            width: 90% !important;
+        .replica-img:hover {
+            transform: scale(1.01);
         }
 
-        .parchment-doc-content {
-            /* Ink Bleed & Blend */
-            mix-blend-mode: multiply;
-            opacity: 0.9;
-            filter: blur(0.3px) contrast(1.2);
-            transform: translateZ(0);
-            /* Fix for rendering */
-        }
-
-        .parchment-doc h3 {
-            text-align: center;
-            border-bottom: 2px solid rgba(43, 29, 14, 0.3);
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            font-size: 4.5rem;
-            color: #2b1d0e;
-            font-weight: 400;
-            line-height: 1.1;
-            /* Handwriting isn't perfect */
-            transform: rotate(0.5deg);
-        }
-
-        .treaty-intro {
-            text-align: center;
-            font-size: 2.4rem;
-            margin-bottom: 3rem;
-            padding: 0 2rem;
-            line-height: 1.5;
-        }
-
-        .parchment-doc ul {
-            padding: 0 1rem;
-            list-style: none;
-            /* No bullets for a treaty */
-        }
-
-        .parchment-doc li {
-            margin-bottom: 2.5rem;
-            text-align: left;
-            /* Natural handwriting flow, never justified */
-            text-indent: 3rem;
-            /* Indent new paragraphs */
-            position: relative;
-        }
-
-        /* Roman Numeral Styling */
-        .parchment-doc li strong {
-            font-size: 2.6rem;
-            color: #1a0f05;
-            font-weight: bold;
-            margin-right: 0.5rem;
+        /* Download Button Styling */
+        .download-btn {
             display: inline-block;
+            margin-top: 30px;
+            padding: 15px 35px;
+            background-color: #8b0000;
+            /* Maroon */
+            color: #d4af37;
+            /* Gold */
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            border: 2px solid #d4af37;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Variation for organic feel */
-        .parchment-doc li:nth-child(odd) {
-            transform: rotate(0.3deg) translateX(2px);
-            opacity: 0.95;
+        .download-btn:hover {
+            background-color: #d4af37;
+            color: #2e4d32;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            transform: translateY(-2px);
         }
 
-        .parchment-doc li:nth-child(even) {
-            transform: rotate(-0.2deg) translateX(-1px);
-            opacity: 0.9;
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
-        .parchment-doc li:nth-child(3n) {
-            margin-left: 15px;
-            /* Slight drift */
-            transform: rotate(0.1deg);
-        }
+        /* Mobile adjustment */
+        @media (max-width: 768px) {
+            .replica-intro {
+                font-size: 1.5rem;
+            }
 
-        .parchment-doc li:nth-child(3n+1) {
-            margin-left: -5px;
-        }
+            .replica-container {
+                width: 100%;
+                margin-top: 20px;
+            }
 
-        .treaty-preamble {
-            text-align: center;
-            font-size: 2.0rem;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid rgba(43, 29, 14, 0.4);
-            padding-bottom: 2rem;
-            line-height: 1.4;
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-            transform: rotate(-0.5deg);
-        }
-
-        .source-note {
-            margin-top: 3rem;
-            border-top: 1px solid rgba(43, 29, 14, 0.3);
-            padding-top: 1rem;
-            text-align: right;
-            font-size: 1.5rem;
-            opacity: 0.8;
-            transform: rotate(0.5deg);
+            .replica-img {
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
         }
     </style>
 </head>
@@ -174,110 +128,21 @@
         </div>
     </nav>
 
-    <!-- Header Removed to allow full parchment immersion -->
+    <!-- Main Content Area -->
+    <div class="replica-container">
+        <h1 class="replica-intro">The 1738 Treaty of Pacification</h1>
+        <p class="replica-sub">A digital replica of the sacred covenant.</p>
 
-    <div class="content-container">
+        <!-- The High-Res Replica Image -->
+        <a href="Pictures/treaty_replica_hires.png" target="_blank" title="Click to view full size">
+            <img src="Pictures/treaty_replica_hires.png" alt="1738 Treaty of Pacification Replica" class="replica-img">
+        </a>
 
-        <!-- The Parchment Document (Full Width) -->
-        <div class="parchment-doc dedicated-parchment">
-            <div class="parchment-doc-content">
-                <h3>Articles of Pacification (1738)</h3>
-                <div class="treaty-preamble">
-                    In the name of God, Amen. Whereas Captain Cudjoe, Captain Accompong, Captain Johnny, Captain
-                    Cuffee, Captain Quaco... have been in a state of war and hostility... they mutually, sincerely,
-                    and amicably, have agreed to the following articles:
-                </div>
-                <ul>
-                    <li><strong>I.</strong> That all hostilities shall cease on both sides for ever.</li>
+        <br>
 
-                    <li><strong>II.</strong> That the said Captain Cudjoe, the rest of his captains, adherents, and
-                        men shall be for ever hereafter in a perfect state of freedom and liberty, excepting those
-                        who have been taken by them, or fled to them, within two years last past, if such are
-                        willing to return to their said masters and owners, with full pardon and indemnity from
-                        their said masters or owners for what is past; provided always, that, if they are not
-                        willing to return, they shall remain in subjection to Captain Cudjoe and in friendship with
-                        us, according to the form and tenor of this treaty.</li>
-
-                    <li><strong>III.</strong> That they shall enjoy and possess, for themselves and posterity for
-                        ever, all the lands situate and lying between Trelawney Town and the Cockpits, to the amount
-                        of fifteen hundred acres, bearing Northwest from the said Trelawney Town.</li>
-
-                    <li><strong>IV.</strong> That they shall have liberty to plant the said lands with coffee,
-                        cocoa, ginger, tobacco, and cotton, and to breed cattle, hogs, goats, or any other stock,
-                        and dispose of the produce or increase of the said commodities to the inhabitants of this
-                        island; provided always, that when they bring the said commodities to market, they shall
-                        apply first to the custos, or any other magistrate of the respective parishes where they
-                        expose their goods to sale, for a licence to vend the same.</li>
-
-                    <li><strong>V.</strong> That Captain Cudjoe, and all the Captain's adherents, and people now in
-                        subjection to him, shall all live together within the bounds of Trelawney Town, and that
-                        they have liberty to hunt where they shall think fit, except within three miles of any
-                        Settlement, Crawl or Pen. Provided always, that in case the hunters of Captain Cudjoe, and
-                        those of other Settlements meet, then the hogs to be equally divided between both parties.
-                    </li>
-
-                    <li><strong>VI.</strong> That the said Captain Cudjoe, and his successors, do use their best
-                        endeavours to take, kill, suppress, or destroy, either by themselves, or jointly with any
-                        other number of men, commanded on that service by his excellency the Governor, or commander
-                        in chief for the time being, all rebels wheresoever they be, throughout this island, unless
-                        they submit to the same terms of accommodation granted to Captain Cudjoe, and his
-                        successors.</li>
-
-                    <li><strong>VII.</strong> That in case this island be invaded by any foreign enemy, the said
-                        Captain Cudjoe, and his successors hereinafter named or to be appointed, shall then, upon
-                        notice given, immediately repair to any place the Governor for the time being shall appoint,
-                        in order to repel the said invaders with his or their utmost force, and to submit to the
-                        orders of the Commander in Chief on that occasion.</li>
-
-                    <li><strong>VIII.</strong> That if any white man shall do any manner of injury to Captain
-                        Cudjoe, his successors, or any of his or their people, they shall apply to any commanding
-                        officer or magistrate in the neighbourhood for justice; and in case Captain Cudjoe, or any
-                        of his people, shall do any injury to any white person, he shall submit himself, or deliver
-                        up such offender to justice.</li>
-
-                    <li style="color: #8b0000; font-weight: bold; border-bottom: 2px solid #8b0000;">
-                        <strong>IX.</strong>
-                        That if any
-                        negroes shall hereafter run away from their masters or owners, and shall fall into Captain
-                        Cudjoe's hands, they shall immediately be sent back to the chief magistrate of the next
-                        parish where they are taken; and those that bring them are to be satisfied for their
-                        trouble, as the legislature shall appoint.
-                    </li>
-
-                    <li><strong>X.</strong> That all negroes taken, since the raising of this party by Captain
-                        Cudjoe's people, shall immediately be returned.</li>
-
-                    <li><strong>XI.</strong> That Captain Cudjoe, and his successors, shall wait on his Excellency,
-                        or the Commander in Chief for the time being, every year, if thereunto required.</li>
-
-                    <li><strong>XII.</strong> That Captain Cudjoe, during his life, and the captains succeeding him,
-                        shall have full power to inflict any punishment they think proper for crimes committed by
-                        their men among themselves, death only excepted; in which case, if the captain thinks they
-                        deserve death, he shall be obliged to bring them before any justice of the peace, who shall
-                        order proceedings on their trial equal to those of other free Negroes.</li>
-
-                    <li><strong>XIII.</strong> That Captain Cudjoe, with his people, shall cut, clear, and keep
-                        open, large and convenient roads from Trelawney Town to Westmorland and St. James's, and if
-                        possible to St. Elizabeth's.</li>
-
-                    <li><strong>XIV.</strong> That two white men, to be nominated by the Governor or Commander in
-                        Chief for the time being, shall constantly live and reside with Captain Cudjoe and his
-                        successors, in order to maintain a friendly correspondence with the inhabitants of this
-                        island.</li>
-
-                    <li><strong>XV.</strong> That Captain Cudjoe shall, during his life, be Chief Commander in
-                        Trelawney Town; after his decease the command to devolve on his brother, Captain Accompong;
-                        and in case of his decease, on his next brother Captain Johnny; and, failing him, Captain
-                        Cuffee shall succeed; who is to be succeeded by Captain Quaco; and after all their demises,
-                        the Governor, or Commander in Chief for the time being, shall appoint, from time to time,
-                        whom he thinks fit for that command.</li>
-                </ul>
-                <div class="source-note">
-                    Source: R.C. Dallas, <strong>The History of the Maroons</strong>, Vol. 1, pp. 58-65 (1803).
-                </div>
-            </div>
-        </div>
-
+        <a href="Pictures/treaty_replica_hires.png" download="Trelawny_Treaty_1738_Replica.png" class="download-btn">
+            Download Document
+        </a>
     </div>
 
     <footer>
@@ -285,5 +150,10 @@
     </footer>
 
 </body>
+<!-- 
+    NOTE: The previous text-based version of the treaty has been replaced 
+    by the high-fidelity image replica (treaty_replica_hires.png) 
+    as per the latest design update.
+-->
 
 </html>
