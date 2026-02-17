@@ -8,66 +8,153 @@
     <link rel="stylesheet" href="style.css?v=6">
     <script src="script.js" defer></script>
     <style>
-        /* FORCE OVERRIDE: Landscape Parchment Styles */
-        @import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+        /* FORCE OVERRIDE: Realistic Document Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
 
         body {
-            background-color: #2e1a0f;
-            /* Dark background behind parchment */
+            background-color: #2e4d32;
+            /* Forest Green background for the page */
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Pinyon Script', cursive;
         }
 
         .parchment-doc {
-            /* INFINITE SCROLL PARCHMENT */
+            /* 1. INFINITE SCROLL PARCHMENT */
             background: url('Pictures/treaty_parchment_blank_center.png');
             background-color: #e3dac1;
             background-size: 100% auto;
-            /* Full Width */
             background-repeat: repeat-y;
-            /* Vertical Repeat */
-            background-attachment: scroll;
+            background-attachment: local;
 
-            /* Document Container */
-            color: #1a0f05;
-            padding: 4rem 3rem;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+            /* 2. REAL INK & MARGINS */
+            color: #2b1d0e;
+            /* Deep Sepia/Iron Gall Ink */
+            padding: 5rem 6rem;
+            /* Wide margins */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 120px rgba(0, 0, 0, 0.3);
 
-            /* Font Styling */
-            font-family: 'Herr Von Muellerhoff', cursive;
-            font-size: 2.8rem;
-            line-height: 1.25;
+            /* 3. REFERENCE FONT MATCH */
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.2rem;
+            /* Legible but transformative size */
+            line-height: 1.6;
             font-weight: 400;
 
             /* Layout */
             position: relative;
-            margin: 0 auto;
-            width: 98vw;
-            /* FORCE FULL WIDTH */
-            max-width: none;
+            margin: 2rem auto;
+            width: 90%;
+            max-width: 1000px;
             min-height: 100vh;
             display: block;
+
+            /* Organic Feel */
+            transform: rotate(-0.2deg);
+            /* Very slight skew */
         }
 
         .dedicated-parchment {
-            margin: 0 !important;
-            padding: 0 !important;
-            max-width: 100% !important;
-            width: 100% !important;
+            margin: 2rem auto !important;
+            width: 90% !important;
+        }
+
+        .parchment-doc-content {
+            /* Ink Bleed & Blend */
+            mix-blend-mode: multiply;
+            opacity: 0.9;
+            filter: blur(0.3px) contrast(1.2);
+            transform: translateZ(0);
+            /* Fix for rendering */
         }
 
         .parchment-doc h3 {
             text-align: center;
-            border-bottom: 3px double #3e2723;
-            padding-bottom: 2rem;
-            margin-bottom: 3rem;
-            font-size: 6rem;
-            color: #1a0f05;
+            border-bottom: 2px solid rgba(43, 29, 14, 0.3);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            font-size: 4.5rem;
+            color: #2b1d0e;
             font-weight: 400;
-            line-height: 1;
+            line-height: 1.1;
+            /* Handwriting isn't perfect */
+            transform: rotate(0.5deg);
+        }
+
+        .treaty-intro {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 3rem;
+            padding: 0 2rem;
+            line-height: 1.5;
+        }
+
+        .parchment-doc ul {
+            padding: 0 1rem;
+            list-style: none;
+            /* No bullets for a treaty */
         }
 
         .parchment-doc li {
             margin-bottom: 2.5rem;
-            text-align: justify;
+            text-align: left;
+            /* Natural handwriting flow, never justified */
+            text-indent: 3rem;
+            /* Indent new paragraphs */
+            position: relative;
+        }
+
+        /* Roman Numeral Styling */
+        .parchment-doc li strong {
+            font-size: 2.6rem;
+            color: #1a0f05;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Variation for organic feel */
+        .parchment-doc li:nth-child(odd) {
+            transform: rotate(0.3deg) translateX(2px);
+            opacity: 0.95;
+        }
+
+        .parchment-doc li:nth-child(even) {
+            transform: rotate(-0.2deg) translateX(-1px);
+            opacity: 0.9;
+        }
+
+        .parchment-doc li:nth-child(3n) {
+            margin-left: 15px;
+            /* Slight drift */
+            transform: rotate(0.1deg);
+        }
+
+        .parchment-doc li:nth-child(3n+1) {
+            margin-left: -5px;
+        }
+
+        .treaty-preamble {
+            text-align: center;
+            font-size: 2.0rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid rgba(43, 29, 14, 0.4);
+            padding-bottom: 2rem;
+            line-height: 1.4;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            transform: rotate(-0.5deg);
+        }
+
+        .source-note {
+            margin-top: 3rem;
+            border-top: 1px solid rgba(43, 29, 14, 0.3);
+            padding-top: 1rem;
+            text-align: right;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            transform: rotate(0.5deg);
         }
     </style>
 </head>
@@ -95,8 +182,7 @@
         <div class="parchment-doc dedicated-parchment">
             <div class="parchment-doc-content">
                 <h3>Articles of Pacification (1738)</h3>
-                <div
-                    style="text-align: center; font-style: italic; margin-bottom: 2rem; border-bottom: 1px solid #5c4033; padding-bottom: 1rem;">
+                <div class="treaty-preamble">
                     In the name of God, Amen. Whereas Captain Cudjoe, Captain Accompong, Captain Johnny, Captain
                     Cuffee, Captain Quaco... have been in a state of war and hostility... they mutually, sincerely,
                     and amicably, have agreed to the following articles:
@@ -186,8 +272,7 @@
                         the Governor, or Commander in Chief for the time being, shall appoint, from time to time,
                         whom he thinks fit for that command.</li>
                 </ul>
-                <div
-                    style="margin-top: 2rem; border-top: 1px solid #5c4033; padding-top: 1rem; text-align: right; font-size: 0.9rem; font-style: italic;">
+                <div class="source-note">
                     Source: R.C. Dallas, <strong>The History of the Maroons</strong>, Vol. 1, pp. 58-65 (1803).
                 </div>
             </div>
