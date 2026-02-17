@@ -54,37 +54,13 @@
             /* Deep shadow for floating effect */
             border: 1px solid rgba(212, 175, 55, 0.2);
             transition: transform 0.3s ease;
+            cursor: default;
+            /* Start cursor indicates non-interactive */
         }
 
         .replica-img:hover {
             transform: scale(1.01);
-        }
-
-        /* Download Button Styling */
-        .download-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 35px;
-            background-color: #8b0000;
-            /* Maroon */
-            color: #d4af37;
-            /* Gold */
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-            font-family: 'Cinzel', serif;
-            border: 2px solid #d4af37;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .download-btn:hover {
-            background-color: #d4af37;
-            color: #2e4d32;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-            transform: translateY(-2px);
+            /* Subtle breathing effect */
         }
 
         @keyframes fadeIn {
@@ -133,16 +109,9 @@
         <h1 class="replica-intro">The 1738 Treaty of Pacification</h1>
         <p class="replica-sub">A digital replica of the sacred covenant.</p>
 
-        <!-- The High-Res Replica Image -->
-        <a href="Pictures/treaty_replica_hires.png" target="_blank" title="Click to view full size">
-            <img src="Pictures/treaty_replica_hires.png" alt="1738 Treaty of Pacification Replica" class="replica-img">
-        </a>
+        <!-- The High-Res Replica Image (Protected by script.js) -->
+        <img src="Pictures/treaty_replica_hires.png" alt="1738 Treaty of Pacification Replica" class="replica-img">
 
-        <br>
-
-        <a href="Pictures/treaty_replica_hires.png" download="Trelawny_Treaty_1738_Replica.png" class="download-btn">
-            Download Document
-        </a>
     </div>
 
     <footer>
@@ -151,9 +120,9 @@
 
 </body>
 <!-- 
-    NOTE: The previous text-based version of the treaty has been replaced 
-    by the high-fidelity image replica (treaty_replica_hires.png) 
-    as per the latest design update.
+    NOTE: Download links removed. 
+    Image is protected from right-click via script.js 
+    and drag/select via style.css.
 -->
 
 </html>
