@@ -517,49 +517,49 @@ footer a:hover {
 
 /* ... (skipping unchanged lines) ... */
 
+
 .parchment-doc {
-    /* FIXED BACKGROUND: Prevents the "streaky" vertical stretching */
+    /* INFINITE SCROLL PARCHMENT: */
     background: url('Pictures/treaty_parchment_blank_center.png');
     background-color: #e3dac1;
-    /* Fallback parchment color */
-    background-size: cover;
-    /* Covers the area without distortion */
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-attachment: fixed;
-    /* Key fix for stretching */
+    background-size: 100% auto;
+    /* 5. Scales width to screen, height automatic */
+    background-repeat: repeat-y;
+    /* 4. Repeats seamlessly down the page */
+    background-attachment: scroll;
+    /* Scrolls naturally with the page */
 
-    /* Document Container */
+    /* Document Container - Landscape Mode */
     color: #2b1d0e;
-    /* Deep Iron Gall Ink Brown, not digital black */
-    padding: 6rem 15% 6rem 15%;
-    /* Standard margins for a document */
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.6), inset 0 0 100px rgba(0, 0, 0, 0.2);
-    /* Depth + Vignette */
+    padding: 4rem 3rem;
+    /* Maximize writing space (less wasted paper) */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 
     /* Font Styling for Realism */
     font-family: 'Herr Von Muellerhoff', cursive;
-    /* Masterful 18th-century script */
-    font-size: 2.4rem;
-    /* Needs to be large to be legible */
-    line-height: 1.3;
+    font-size: 2.5rem;
+    /* Large, legible handwritten script */
+    line-height: 1.25;
     font-weight: 400;
 
     /* Layout */
     position: relative;
-    margin: 3rem auto;
-    width: 95%;
-    max-width: 1000px;
+    margin: 0 auto;
+    width: 98%;
+    /* Landscape: Use almost full screen width */
+    max-width: none;
+    /* Do not constrain width */
     min-height: 100vh;
     display: block;
     overflow: visible;
 }
 
 .dedicated-parchment {
-    max-width: 1100px;
+    max-width: 100%;
+    /* Ensure container allows full width */
     width: 100%;
-    margin: 0 auto;
-    padding: 4rem 2rem;
+    margin: 0;
+    padding: 0;
 }
 
 /* Remove the inner scroll container logic */
@@ -573,11 +573,12 @@ footer a:hover {
 
     /* REVOLUTIONARY FIX: Multiply Blend Mode */
     mix-blend-mode: multiply;
-    opacity: 0.9;
-    color: #2b1d0e;
+    opacity: 0.95;
+    color: #1a0f05;
+    /* Dark ink */
 }
 
-/* Remove custom scrollbars as we are using the browser's now */
+/* Remove custom scrollbars */
 .parchment-doc-content::-webkit-scrollbar {
     display: none;
 }
@@ -589,35 +590,36 @@ footer a:hover {
 /* Header Styling */
 .parchment-doc h3 {
     text-align: center;
-    border-bottom: 2px solid #3e2723;
-    /* Darker line */
-    padding-bottom: 1.5rem;
+    border-bottom: 3px double #3e2723;
+    padding-bottom: 2rem;
     margin-bottom: 3rem;
-    font-size: 5rem;
+    font-size: 6rem;
     /* Majestic Title Size */
-    color: #2b1d0e;
+    color: #1a0f05;
     font-weight: 400;
     line-height: 1;
     text-shadow: none;
-    letter-spacing: 2px;
+    letter-spacing: 0px;
 }
 
-/* List/Article Styling - THE REALISM FIX */
+/* List/Article Styling */
 .parchment-doc ul {
     list-style-type: none;
     padding: 0;
+    column-count: 1;
+    /* Keep as one wide block, or set to 2 for newspaper style */
 }
 
 .parchment-doc li {
-    margin-bottom: 3rem;
-    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    font-size: 2.4rem;
     border-bottom: none;
     padding-bottom: 0;
-    line-height: 1.4;
+    line-height: 1.3;
     font-weight: 400;
     text-shadow: none;
 
-    /* Align text like a document, not a menu */
+    /* Align text like a wide proclamation */
     text-align: justify;
     text-justify: inter-word;
 }
