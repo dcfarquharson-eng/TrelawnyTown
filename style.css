@@ -720,12 +720,24 @@ footer a:hover {
 .section-content {
     display: none;
     margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.25);
     animation: fadeInUp 0.4s ease;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: #e0e0e0;
 }
 
 .section-content.section-open {
     display: block;
 }
+
+.read-less-wrapper {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
 
 /* SECTION SPLIT LAYOUT (image left, text right) */
 .section-split {
