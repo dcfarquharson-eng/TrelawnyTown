@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Trelawny Town Maroons</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        .contact-wrapper {
+            max-width: 750px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-intro h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-accent);
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-intro p {
+            font-size: 1.15rem;
+            color: #ccc;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 6px;
+            padding: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+            padding: 0.85rem 1rem;
+            color: #e0e0e0;
+            font-size: 1.05rem;
+            font-family: 'Georgia', serif;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group select option {
+            background: var(--forest-green);
+            color: #e0e0e0;
+        }
+
+        .form-group textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .form-submit button {
+            background: var(--maroon-red);
+            color: #fff;
+            border: none;
+            padding: 1rem 3rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit button:hover {
+            background: #6a0000;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-divider {
+            border: none;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin: 3rem 0;
+        }
+
+        .contact-note {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Trelawny Town</a>
+        <div class="menu-toggle">&#9776;</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="history.html" class="nav-link">The History</a>
+            <a href="treaty.html" class="nav-link">The Treaty</a>
+            <a href="war.html" class="nav-link">The 1795 War</a>
+            <a href="book.html" class="nav-link">The Book</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+        </div>
+    </nav>
+
+    <div class="contact-wrapper">
+
+        <div class="contact-intro">
+            <h1>Get in Touch</h1>
+            <p>
+                Whether you are a researcher, a descendant, an educator, or simply someone moved by this history —
+                we welcome your message.
+            </p>
+        </div>
+
+        <!-- REPLACE YOUR_FORM_ID below with your Formspree form ID -->
+        <form class="contact-form" action="https://formspree.io/f/xlgwoebr" method="POST">
+
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                    <option value="">— Select a topic —</option>
+                    <option value="Research Inquiry">Research Inquiry</option>
+                    <option value="Descendant Connection">Descendant Connection</option>
+                    <option value="Educational Use">Educational Use</option>
+                    <option value="Media / Press">Media / Press</option>
+                    <option value="The Book">The Book</option>
+                    <option value="General Message">General Message</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <!-- Hidden fields for Formspree routing -->
+            <!-- IMPORTANT: Register on formspree.io using dcfarquharson@gmail.com -->
+            <input type="hidden" name="_subject" value="New message from TrelawnyTown.com">
+            <input type="hidden" name="_replyto" value="dcfarquharson@gmail.com">
+
+            <div class="form-submit">
+                <button type="submit">Send Message</button>
+            </div>
+
+        </form>
+
+        <hr class="contact-divider">
+        <p class="contact-note">
+            Your message will be received directly by the research team. We aim to respond within a few days.
+        </p>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TrelawnyTown.com. Dedicated to the Ancestors.</p>
+    </footer>
+
+</body>
+
+</html>
