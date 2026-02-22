@@ -27,7 +27,7 @@
     <div class="hero">
         <div class="hero-container">
             <div class="hero-image-wrapper">
-                <span class="hero-caption">Captain Cudjoe & the British<br>The Treaty of 1738</span>
+                <span class="hero-caption">Captain Cudjoe &amp; the British<br>The Treaty of 1738</span>
                 <img src="Pictures/cudjoe-guthrie-treaty.jpg"
                     alt="Captain Cudjoe meeting British officers at the Treaty signing">
             </div>
@@ -40,97 +40,184 @@
         </div>
     </div>
 
-    <div class="content-container">
+    <div class="content-container" id="history-content">
 
         <p class="history-intro">
-            The history of the Trelawny Maroons is not merely a story of escape from slavery; it is a story of
-            nation-building in the face of impossible odds. Long before the American Revolution, the Maroons of Jamaica
-            had forced the British Empire to its knees.
+            The history of the Trelawny Maroons is not merely a story of escape from slavery — it is a story of
+            nation-building in the face of impossible odds. For over 80 years, they fought, survived, and built
+            a free society deep in the mountains of Jamaica.
         </p>
 
         <!-- SECTION 1: THE LEEWARD MAROONS -->
         <div class="history-section">
             <h2>The Leeward Maroons</h2>
-            <div class="history-card">
+            <p class="section-teaser">
+                In the rugged limestone hills of the Cockpit Country, a community of escaped Africans forged a new
+                society — and fought one of the longest guerrilla wars in Caribbean history.
+            </p>
+            <button class="read-more-btn" onclick="toggleSection(this)">Read More &#9660;</button>
+            <div class="section-content">
+                <div class="history-card">
+                    <div class="history-grid">
+                        <div>
+                            <p>
+                                In the rugged limestone hills of the Cockpit Country — a terrain so treacherous that
+                                British
+                                soldiers could barely traverse it — a community of escaped Africans forged a new
+                                society.
+                                These were the Leeward Maroons, descendants of enslaved Africans who had escaped Spanish
+                                plantations
+                                when the British conquered Jamaica in 1655.
+                            </p>
+                            <p>
+                                Led by the brilliant strategist <strong>Cudjoe</strong> (also known as Kojo), and
+                                supported by
+                                his brothers <strong>Accompong</strong> and <strong>Johnny</strong>, and his sister
+                                <strong>Nanny</strong> — the legendary Windward Maroon Queen — they waged an 80-year war
+                                against
+                                the colonial militia. They used the land as a weapon, turning the Cockpit Country into
+                                an
+                                impenetrable fortress of limestone sinkholes, dense jungle, and hidden pathways known
+                                only to them.
+                            </p>
+                            <p>
+                                British expeditions sent to crush them returned shattered. Entire regiments were
+                                ambushed, their
+                                officers killed, their formations broken. The Maroons fired from invisible positions,
+                                vanished
+                                into the forest, and struck again miles away. Jamaica's plantation economy was in
+                                crisis.
+                            </p>
+                            <div class="quote-box" style="margin-top: 2rem; font-size: 1.1rem;">
+                                "They were not merely runaways. They were soldiers, strategists, and free men who
+                                refused to
+                                be conquered."
+                            </div>
+                        </div>
+                        <div style="text-align: center;">
+                            <img src="Pictures/cockpit-country-map.jpg" alt="Map of the Cockpit Country Fortress"
+                                style="width: 100%; border-radius: 4px; border: 2px solid var(--gold-accent); box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+                            <p style="font-size: 0.8rem; color: #aaa; margin-top: 5px;">The Natural Fortress of the
+                                Cockpit Country</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: THE TREATY OF 1738 -->
+        <div class="history-section">
+            <h2>The Treaty of 1738</h2>
+            <p class="section-teaser">
+                By 1738, the British Empire admitted what few empires ever do — that they could not win.
+                Governor Edward Trelawny authorized a peace treaty, the first of its kind in the Caribbean.
+            </p>
+            <button class="read-more-btn" onclick="toggleSection(this)">Read More &#9660;</button>
+            <div class="section-content">
                 <div class="history-grid">
                     <div>
                         <p>
-                            In the rugged limestone hills of the Cockpit Country—a terrain so treacherous that British
-                            soldiers could barely traverse it—a community of escaped Africans forged a new society.
+                            By 1738, the British realized they could not win militarily. Governor Edward Trelawny
+                            authorized
+                            a peace treaty — the first of its kind in the Caribbean. After 80 years of warfare, the
+                            Crown was
+                            forced to negotiate with the people it had tried to enslave.
                         </p>
                         <p>
-                            Led by the brilliant strategist <strong>Cudjoe</strong>, the Leeward Maroons waged an
-                            80-year war against the colonial militia. They used the land as a weapon, turning the
-                            Cockpit Country into an impenetrable fortress.
+                            Signed by Captain Cudjoe and British officers at a place now known as <strong>Cudjoe's
+                                Town</strong>
+                            (later renamed Trelawny Town), the treaty granted the Maroons <strong>1,500 acres of
+                                land</strong>,
+                            the right to self-governance, their own judicial system, and the freedom to trade in
+                            Jamaican markets.
+                            Cudjoe was formally recognized with the rank of <strong>Colonel</strong> by the British
+                            Crown.
                         </p>
-                        <div class="quote-box" style="margin-top: 2rem; font-size: 1.1rem;">
-                            "They were not merely runaways. They were soldiers, strategists, and free men who refused to
-                            be conquered."
+                        <p>
+                            It was a victory — but one that came with a heavy price. The treaty bound the Maroons to
+                            assist
+                            the British in suppressing future slave rebellions and returning escaped slaves. This clause
+                            would
+                            haunt their legacy and create a painful moral tension that historians still debate today.
+                        </p>
+                        <img src="Pictures/cudjoe-guthrie-treaty.jpg" alt="The Treaty Signing"
+                            style="width: 100%; margin-top: 1rem; border-radius: 4px; opacity: 0.85;">
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <a href="treaty.html" class="cta-button">Read the Full Treaty</a>
                         </div>
                     </div>
-                    <div style="text-align: center;">
-                        <img src="Pictures/cockpit-country-map.jpg" alt="Map of the Cockpit Country Fortress"
-                            style="width: 100%; border-radius: 4px; border: 2px solid var(--gold-accent); box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-                        <p style="font-size: 0.8rem; color: #aaa; margin-top: 5px;">The Natural Fortress of the Cockpit
-                            Country</p>
-                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION 2: THE TREATY -->
-        <div class="history-section">
-            <h2>The Treaty of 1738</h2>
-            <div class="history-grid">
-                <!-- Left: Context -->
-                <div>
+        <!-- SECTION 3: THE GOLDEN AGE -->
+        <div class="history-section" style="border-left-color: var(--gold-dim);">
+            <h2>The Golden Age (1739–1795)</h2>
+            <p class="section-teaser">
+                For over 50 years after the treaty, Trelawny Town flourished as the largest Maroon settlement in Jamaica
+                — a community of 600 free people who farmed, traded, and governed themselves.
+            </p>
+            <button class="read-more-btn" onclick="toggleSection(this)">Read More &#9660;</button>
+            <div class="section-content">
+                <div class="history-card">
                     <p>
-                        By 1738, the British realized they could not win militarily. Governor Edward Trelawny authorized
-                        a peace treaty—the first of its kind in the Caribbean.
+                        For over 50 years, Trelawny Town flourished. It became the largest Maroon settlement in Jamaica
+                        —
+                        a bustling community of approximately <strong>600 people</strong> living in relative peace. They
+                        farmed
+                        fertile mountain plots, raised livestock, and traded produce at markets in Montego Bay and
+                        surrounding
+                        parishes. Their unique culture blended Akan traditions from West Africa with the realities of
+                        the
+                        Jamaican interior.
                     </p>
                     <p>
-                        Signed by Captain Cudjoe and British officers, it was a victory, but one that came with a heavy
-                        price. This agreement granted them freedom but bound them to the colonial government in ways
-                        that would echo through history.
+                        The Maroons maintained their own <strong>Council of Elders</strong>, their own military
+                        structure,
+                        and their own spiritual practices. They were, in every meaningful sense, a sovereign people
+                        operating
+                        within — but apart from — the British colonial system.
                     </p>
-                    <img src="Pictures/cudjoe-guthrie-treaty.jpg" alt="The Treaty Signing"
-                        style="width: 100%; margin-top: 1rem; border-radius: 4px; opacity: 0.8;">
-
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <a href="treaty.html" class="cta-button">Read the Full Treaty</a>
+                    <p>
+                        But as the town grew, so did the envy of neighboring planters and the anxiety of the British
+                        administration. The "peace" was fragile. Across the Caribbean, the winds of revolution were
+                        blowing.
+                        The <strong>Haitian Revolution of 1791</strong> — in which enslaved people overthrew their
+                        French
+                        masters — sent shockwaves through every plantation society in the region. Jamaica's colonial
+                        government,
+                        terrified by what they saw next door, began to look for any excuse to dismantle Maroon autonomy
+                        once and for all.
+                    </p>
+                    <p style="font-size: 1.2rem; color: var(--gold-accent); text-align: center; margin-top: 2rem;">
+                        In 1795, they found one.
+                    </p>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <a href="war.html" class="cta-button">The War of 1795 &rarr;</a>
                     </div>
                 </div>
-
             </div>
         </div>
-
-    </div>
-
-    <!-- SECTION 3: THE GOLDEN AGE -->
-    <div class="history-section" style="border-left-color: var(--gold-dim);">
-        <h2>The Golden Age (1739-1795)</h2>
-        <div class="history-card">
-            <p>
-                For over 50 years, Trelawny Town flourished. It became the largest Maroon settlement, a bustling
-                community of 600 people living in relative peace. They farmed, traded at local markets, and built a
-                unique culture that blended African traditions with the realities of the Jamaican interior.
-            </p>
-            <p>
-                But as the town grew, so did the envy of the neighboring planters—and the anxiety of the British
-                administration. The "peace" was fragile. The colonial government, terrified by the Haitian
-                Revolution next door, began to look for any excuse to dismantle Maroon autonomy.
-            </p>
-            <p style="font-size: 1.2rem; color: var(--gold-accent); text-align: center; margin-top: 2rem;">
-                In 1795, they found one.
-            </p>
-        </div>
-    </div>
 
     </div>
 
     <footer>
         <p>&copy; 2026 TrelawnyTown.com. Dedicated to the Ancestors.</p>
     </footer>
+
+    <script>
+        function toggleSection(btn) {
+            const content = btn.nextElementSibling;
+            const isOpen = content.classList.contains('section-open');
+            if (isOpen) {
+                content.classList.remove('section-open');
+                btn.innerHTML = 'Read More &#9660;';
+            } else {
+                content.classList.add('section-open');
+                btn.innerHTML = 'Read Less &#9650;';
+            }
+        }
+    </script>
 
 </body>
 

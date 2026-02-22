@@ -688,6 +688,46 @@ footer a:hover {
     font-family: 'Cinzel', serif;
 }
 
+/* ACCORDION SECTIONS (history.html) */
+.section-teaser {
+    font-size: 1.1rem;
+    color: #d0d0d0;
+    font-style: italic;
+    margin: 0.5rem 0 1.2rem 0;
+    line-height: 1.7;
+}
+
+.read-more-btn {
+    background: var(--maroon-red);
+    color: #fff;
+    border: 1px solid var(--maroon-red);
+    padding: 0.7rem 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.read-more-btn:hover {
+    background: #5a0000;
+    border-color: var(--gold-accent);
+}
+
+.section-content {
+    display: none;
+    margin-top: 1.5rem;
+    animation: fadeInUp 0.4s ease;
+}
+
+.section-content.section-open {
+    display: block;
+}
+
+
 /* Image Protection */
 img {
     -webkit-user-drag: none;
