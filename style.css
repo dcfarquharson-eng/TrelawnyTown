@@ -13,7 +13,7 @@
 
 /* Typography */
 /* Typography */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&family=Pinyon+Script&family=Herr+Von+Muellerhoff&display=swap');
 
 /* ... (skipping unchanged lines) ... */
 
@@ -526,8 +526,7 @@ footer a:hover {
     }
 }
 
-/* Typography */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&family=Herr+Von+Muellerhoff&display=swap');
+
 
 /* ... (skipping unchanged lines) ... */
 

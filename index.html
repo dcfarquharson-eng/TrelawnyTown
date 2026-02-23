@@ -4,9 +4,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="The Trelawny Town Maroons — the untold story of a free people who forced the British Empire to its knees. 40 years of original research uncovering the truth of the Second Maroon War.">
     <title>Trelawny Town Maroons - The Untold History</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <style>
+        /* Key Figures Section */
+        .figures-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
+
+        .figure-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-top: 4px solid var(--gold-accent);
+            border-radius: 4px;
+            padding: 1.8rem 1.5rem;
+            width: 260px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: var(--parchment);
+            display: block;
+        }
+
+        .figure-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--gold-accent);
+        }
+
+        .figure-card .figure-era {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .figure-card h3 {
+            font-size: 1.25rem;
+            margin: 0.4rem 0 0.8rem;
+            color: #fff;
+            border: none;
+            padding: 0;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .figure-card p {
+            font-size: 0.95rem;
+            color: #ccc;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Quote Band */
+        .quote-band {
+            background: linear-gradient(135deg, rgba(128, 0, 0, 0.85), rgba(90, 0, 0, 0.95));
+            border-top: 3px solid var(--gold-accent);
+            border-bottom: 3px solid var(--gold-accent);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .quote-band blockquote {
+            font-family: 'Cinzel', serif;
+            font-size: 1.7rem;
+            font-style: italic;
+            color: var(--parchment);
+            max-width: 850px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+
+        .quote-band cite {
+            color: var(--gold-accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-style: normal;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Clickable event cards */
+        a.event-card {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        a.event-card h3 {
+            color: #fff;
+        }
+
+        a.event-card::after {
+            content: '→';
+            display: block;
+            color: var(--gold-accent);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        a.event-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Section heading with left-border accent */
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 0.8rem;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,7 +137,7 @@
         <a href="index.html" class="nav-brand">Trelawny Town Maroons</a>
         <div class="menu-toggle">&#9776;</div>
         <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="index.html" class="nav-link active">Home</a>
             <a href="about.html" class="nav-link">About</a>
             <a href="history.html" class="nav-link">History</a>
             <a href="treaty.html" class="nav-link">Treaty</a>
@@ -25,6 +147,7 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <div class="hero">
         <div class="hero-container">
             <!-- Left Side: Image -->
@@ -43,8 +166,9 @@
         </div>
     </div>
 
+    <!-- KEY MILESTONES -->
     <div class="section">
-        <h2>A History Written in Blood and Fire</h2>
+        <h2 class="section-heading">A History Written in Blood and Fire</h2>
 
         <div class="text-block">
             <p>For over 40 years, we have meticulously researched the true story of the Trelawny Town Maroons. This is
@@ -55,25 +179,72 @@
         </div>
 
         <div class="timeline">
-            <div class="event-card">
+            <a href="treaty.html" class="event-card">
                 <span class="event-year">1738</span>
                 <h3>The Blood Treaty</h3>
-                <p>Cudjoe secures peace and autonomy for the Maroons, signed in blood.</p>
-            </div>
+                <p>Cudjoe forces the British Empire to the negotiating table. Peace signed in blood — the first of its
+                    kind in the Caribbean.</p>
+            </a>
 
-            <div class="event-card">
+            <a href="war.html" class="event-card">
                 <span class="event-year">1795</span>
                 <h3>The Second War</h3>
-                <p>Sparked by a whipping, fueled by betrayal. The Maroons face the British Empire.</p>
-            </div>
+                <p>Sparked by a whipping, fueled by betrayal. The Maroons of Trelawny Town face the full might of the
+                    British Empire.</p>
+            </a>
 
-            <div class="event-card">
+            <a href="war.html#exile" class="event-card">
                 <span class="event-year">1796</span>
                 <h3>The Exile</h3>
-                <p>Betrayed by Governor Balcarres, 568 Maroons are deported to Nova Scotia.</p>
-            </div>
-        </div>
+                <p>Betrayed by Governor Balcarres, 568 Maroons are deported to the frozen shores of Nova Scotia.</p>
+            </a>
 
+            <a href="history.html" class="event-card">
+                <span class="event-year">1800</span>
+                <h3>Sierra Leone</h3>
+                <p>After four years of hardship in Canada, the exiled Maroons are resettled in Sierra Leone — never to
+                    return to Jamaica.</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- FULL-WIDTH QUOTE BAND -->
+    <div class="quote-band">
+        <blockquote>
+            "One Maroon in the bush is worth ten British regulars."
+        </blockquote>
+        <cite>— British Military Dispatch, Jamaica, 1795</cite>
+    </div>
+
+    <!-- KEY FIGURES -->
+    <div class="section">
+        <h2 class="section-heading">The People Behind the History</h2>
+        <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 0; max-width: 700px;">
+            Three men defined the Trelawny Town Maroon story — each in his own era, each irreplaceable.
+        </p>
+
+        <div class="figures-grid">
+            <a href="history.html" class="figure-card">
+                <div class="figure-era">The Founding, 1738</div>
+                <h3>Colonel Cudjoe</h3>
+                <p>Strategist. Warrior. Nation-builder. He waged an 80-year war against the British and forced them to
+                    sign the first peace treaty in the Caribbean.</p>
+            </a>
+
+            <a href="war.html" class="figure-card">
+                <div class="figure-era">The War, 1795</div>
+                <h3>Captain Leonard Parkinson</h3>
+                <p>The last great military commander of Trelawny Town. He led the Invisible Army against Sandford's
+                    column and kept the British at bay for months.</p>
+            </a>
+
+            <a href="war.html" class="figure-card">
+                <div class="figure-era">The Council, 1795</div>
+                <h3>Montague James</h3>
+                <p>Last Captain of Trelawny Town. Presided over the war council that answered the insult of the whipping
+                    with a single word: war.</p>
+            </a>
+        </div>
     </div>
 
     <footer>
