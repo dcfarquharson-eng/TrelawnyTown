@@ -8,6 +8,9 @@
     <title>Member Dashboard - Trelawny Town Maroons</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <!-- Leaflet CSS for Interactive Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 
 <body>
@@ -22,44 +25,60 @@
             <a href="treaty.html" class="nav-link">Treaty</a>
             <a href="war.html" class="nav-link">The War</a>
             <a href="book.html" class="nav-link">Book</a>
+            <a href="members.html" class="nav-link">Members</a>
             <a href="dashboard.html" class="nav-link active">Dashboard</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
 
-    <div class="content-container" style="margin-top: 6rem; max-width: 900px; min-height: 60vh;">
-
-        <div
-            style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 1rem; margin-bottom: 2rem;">
-            <h1 style="color: var(--gold-accent); margin: 0; font-size: 2rem;">Member Dashboard</h1>
+    <div class="content-container" style="margin-top: 6rem; max-width: 1000px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1 style="color: var(--gold-accent); margin: 0;">Society Dashboard</h1>
             <button onclick="logoutMember()" class="cta-button"
-                style="padding: 10px 20px; font-size: 0.9rem; background: transparent; border: 1px solid #ff6b6b; color: #ff6b6b;">Sign
+                style="background: transparent; border: 1px solid #ff6b6b; color: #ff6b6b; padding: 8px 16px; font-size: 0.85rem; cursor: pointer;">Sign
                 Out</button>
         </div>
 
-        <h2 id="welcome-message" style="margin-top: 0; color: #fff; font-size: 1.5rem; margin-bottom: 3rem;">Loading...
-        </h2>
+        <p id="welcome-msg" style="font-size: 1.1rem; color: #eaeaea; margin-bottom: 3rem; line-height: 1.6;">
+            <!-- JS will populate -->
+        </p>
 
         <!-- Dashboard Widgets -->
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
 
-            <!-- Free PDF Download Widget -->
+            <!-- Download Widget -->
             <div
-                style="flex: 1 1 400px; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 4px; border-top: 4px solid var(--gold-accent);">
-                <h3 style="margin-top: 0; color: var(--gold-accent); font-size: 1.3rem;">Exclusive Member Downloads</h3>
-                <p style="color: #ccc; line-height: 1.6; margin-bottom: 1.5rem;">
-                    As a valued member of the Trelawny Town Society, you have exclusive access to our free PDF books and
-                    historical resources.
+                style="background: rgba(255,255,255,0.03); padding: 30px; border-radius: 4px; border-top: 4px solid var(--gold-accent);">
+                <h3 style="margin-top: 0; color: #fff; font-size: 1.3rem;">Free PDF Book Download</h3>
+                <p style="color: #aaa; font-size: 0.95rem; margin-bottom: 20px;">
+                    As a member of the Trelawny Town Society, you get exclusive access to our historical resources.
+                    Download your copy of the book below.
                 </p>
-
                 <div
-                    style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+                    style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
                     <div>
-                        <h4 style="margin: 0 0 5px 0; color: #fff;">The Untold Story PDF</h4>
-                        <p style="margin: 0; font-size: 0.85rem; color: #aaa;">Digital Edition (PDF)</p>
+                        <strong style="color: #fff; font-size: 1.1rem; display: block; margin-bottom: 5px;">The History
+                            of the Maroons (Vol. 1)</strong>
+                        <span style="color: #888; font-size: 0.85rem;">R.C. Dallas &bull; PDF Document &bull; 28
+                            MB</span>
                     </div>
-                    <a href="#" id="download-pdf-btn" class="cta-button" style="margin: 0; padding: 12px 20px;"
-                        onclick="handleDownload(event)">Download Free Book</a>
+                    <a href="pdfs/RCDallas_Vol1.pdf" target="_blank" class="cta-button"
+                        style="text-decoration: none; padding: 10px 20px; font-size: 0.9rem;">Download Free Book</a>
+                </div>
+            </div>
+
+            <!-- Interactive Map Section -->
+            <div
+                style="background: rgba(255,255,255,0.03); padding: 30px; border-radius: 4px; border-top: 4px solid #4a5c54;">
+                <h3 style="margin-top: 0; color: #fff; font-size: 1.3rem; margin-bottom: 10px;">The Cockpit Country:
+                    Sandford's Ambush</h3>
+                <p style="color: #aaa; font-size: 0.95rem; margin-bottom: 20px;">
+                    Explore the interactive map tracking the route of Colonel Sandford's ill-fated advance on August 12,
+                    1795. Click the markers for historical context.
+                </p>
+                <!-- Leaflet Map Container -->
+                <div id="cockpit-map"
+                    style="height: 500px; width: 100%; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); background-color: #1a1a1a;">
                 </div>
             </div>
 
@@ -79,7 +98,7 @@
 
     <!-- Security Check Script -->
     <script>
-        // Check if the user is authenticated immediately
+        // Check if the user is authenticated
         document.addEventListener("DOMContentLoaded", () => {
             const memberId = sessionStorage.getItem("member_id");
             const memberName = sessionStorage.getItem("member_name");
@@ -91,19 +110,68 @@
             }
 
             // Authenticated! Personalize the dashboard
-            document.getElementById("welcome-message").textContent = `Welcome back, ${memberName}!`;
+            document.getElementById("welcome-msg").textContent = `Welcome back, ${memberName}! Here is your private society dashboard.`;
         });
 
         function logoutMember() {
             sessionStorage.removeItem("member_id");
             sessionStorage.removeItem("member_name");
-            window.location.href = "members.html";
+            window.location.href = "index.html";
         }
+    </script>
 
-        function handleDownload(e) {
-            e.preventDefault();
-            alert("The free PDF book will be available for download here shortly!");
-        }
+    <!-- Leaflet JS for Interactive Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Only initialize map if the user is authenticated (container exists)
+            const mapContainer = document.getElementById('cockpit-map');
+            if (!mapContainer) return;
+
+            // 1. Initialize the map centered on the Cockpit Country (approx between Old and New Town)
+            // Coordinates: 18.334403, -77.781572
+            const map = L.map('cockpit-map').setView([18.334403, -77.781572], 13);
+
+            // 2. Add a styled basemap (CartoDB Dark Matter keeps the premium, historical feel)
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(map);
+
+            // 3. Define the Historical Coordinates
+            const oldTownCoords = [18.3150, -77.7900]; // Approximate Old Town
+            const newTownCoords = [18.3450, -77.7700]; // Approximate New Town
+            const ambushCoords = [18.334403, -77.781572]; // The Defile / Dragoon Hole
+
+            // 4. Create Custom Markers with Popups
+            const oldTownMarker = L.marker(oldTownCoords).addTo(map)
+                .bindPopup("<b>Trelawny Old Town</b><br>The primary Maroon stronghold. Colonel Sandford departed from here on the afternoon of August 12, 1795.");
+
+            const newTownMarker = L.marker(newTownCoords).addTo(map)
+                .bindPopup("<b>Trelawny New Town</b><br>Sandford successfully secured this location before making the fatal decision to turn towards the provision grounds.");
+
+            const ambushMarker = L.marker(ambushCoords).addTo(map)
+                .bindPopup("<b>Guthrie's Defile (Dragoon Hole)</b><br>Believing he was returning to the Old Town, Sandford led his dragoons into this narrow gorge. The Maroons, lying hidden, unleashed a devastating volley, killing Sandford and halting the British advance.");
+
+            // 5. Draw the Route (Colonel Sandford's Path)
+            const routeCoordinates = [
+                oldTownCoords,
+                newTownCoords,
+                ambushCoords
+            ];
+
+            const routeLine = L.polyline(routeCoordinates, {
+                color: '#d4af37', // Gold accent
+                weight: 4,
+                opacity: 0.8,
+                dashArray: '10, 10' // Dashed line to indicate movement
+            }).addTo(map);
+
+            // Zoom the map to fit the route exactly
+            map.fitBounds(routeLine.getBounds(), { padding: [50, 50] });
+        });
     </script>
 
     <footer>
