@@ -23,6 +23,7 @@
             <a href="treaty.html" class="nav-link">Treaty</a>
             <a href="war.html" class="nav-link">The War</a>
             <a href="book.html" class="nav-link active">Book</a>
+            <a href="members.html" class="nav-link">Members</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
@@ -86,79 +87,6 @@
 
             <p style="margin-top:2rem; font-style:italic; text-align:center;">Coming 2026.</p>
 
-            <!-- Waitlist Form -->
-            <div id="waitlist-section"
-                style="margin-top: 2rem; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 4px;">
-                <h3 style="margin-top: 0; color: var(--gold-accent);">Join the Trelawny Town Society</h3>
-                <p style="font-size: 0.9rem; margin-bottom: 15px;">Enter your details to join the waitlist and receive
-                    an exclusive preview of the <strong>Cockpit Country Maps</strong>.
-                    A login password will be emailed to you.</p>
-
-                <div style="display: flex; flex-direction: column; gap: 10px; max-width: 480px;">
-                    <input type="text" id="waitlist-name" placeholder="Your Full Name" style="padding: 12px; border: 1px solid #ccc; border-radius: 2px;
-                               font-family: 'Cinzel', serif; background: rgba(255,255,255,0.07);
-                               color: #e8dfc0;">
-                    <input type="email" id="waitlist-email" placeholder="Your Email Address" style="padding: 12px; border: 1px solid #ccc; border-radius: 2px;
-                               font-family: 'Cinzel', serif; background: rgba(255,255,255,0.07);
-                               color: #e8dfc0;">
-                    <button onclick="joinWaitlist()" class="cta-button"
-                        style="margin-top: 0; border: none; cursor: pointer;">Join Now</button>
-                </div>
-                <p id="waitlist-msg" style="margin-top: 10px; font-size: 0.9rem; min-height: 20px;"></p>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        // Points to the dedicated TrelawnyTown API (separate from Magnetic Mind)
-        const API_BASE = "https://trelawny-api.onrender.com/api/trelawny";
-
-        async function joinWaitlist() {
-            const nameInput = document.getElementById('waitlist-name');
-            const emailInput = document.getElementById('waitlist-email');
-            const msg = document.getElementById('waitlist-msg');
-            const name = nameInput.value.trim();
-            const email = emailInput.value.trim();
-
-            if (!name) {
-                msg.textContent = "Please enter your name.";
-                msg.style.color = "#ff6b6b";
-                return;
-            }
-            if (!email || !email.includes('@')) {
-                msg.textContent = "Please enter a valid email address.";
-                msg.style.color = "#ff6b6b";
-                return;
-            }
-
-            msg.textContent = "Joining...";
-            msg.style.color = "#ccc";
-
-            try {
-                const res = await fetch(`${API_BASE}/join_waitlist`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email })
-                });
-
-                const data = await res.json();
-
-                if (data.status === 'ok') {
-                    msg.innerHTML = `<strong style="color:var(--gold-accent);">${data.message}</strong>`;
-                    nameInput.value = "";
-                    emailInput.value = "";
-                } else {
-                    msg.textContent = data.message || "Something went wrong.";
-                    msg.style.color = "#ff6b6b";
-                }
-            } catch (e) {
-                console.error(e);
-                msg.textContent = "Could not reach the server. Please try again later.";
-                msg.style.color = "#ff6b6b";
-            }
-        }
-    </script>
 
     <footer>
         <div
@@ -186,6 +114,8 @@
                     <a href="treaty.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
                         onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">Treaty</a>
                     <a href="book.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
+                        onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">The Book</a>
+                    <a href="members.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
                         onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">The Book</a>
                     <a href="contact.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
                         onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">Contact</a>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Join the Trelawny Town Society, sign in, or manage your membership. Honoring the legacy of the Trelawny Town Maroons.">
+    <title>Members - Trelawny Town Maroons</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Trelawny Town Maroons</a>
+        <div class="menu-toggle">&#9776;</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="history.html" class="nav-link">History</a>
+            <a href="treaty.html" class="nav-link">Treaty</a>
+            <a href="war.html" class="nav-link">The War</a>
+            <a href="book.html" class="nav-link">Book</a>
+            <a href="members.html" class="nav-link">Members</a>
+            <a href="members.html" class="nav-link active">Members</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <div class="content-container" style="margin-top: 6rem; max-width: 800px;">
+        <h1 style="text-align: center; color: var(--gold-accent); margin-bottom: 2rem;">Society Members</h1>
+
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto; line-height: 1.8;">
+            Welcome to the Trelawny Town Society. Join the waitlist for exclusive previews, or log in to manage your
+            membership.
+        </p>
+
+        <!-- Society Waitlist Form (Moved from Book page) -->
+        <div id="waitlist-section"
+            style="margin-bottom: 3rem; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 4px; border-left: 4px solid var(--gold-accent);">
+            <h3 style="margin-top: 0; color: var(--gold-accent);">Join the Trelawny Town Society</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">
+                Enter your details to join the waitlist and receive an exclusive preview of the <strong>Cockpit Country
+                    Maps</strong>.
+                A login password will be emailed to you.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" id="waitlist-name" placeholder="Your Full Name"
+                    style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 2px;
+                            font-family: 'Cinzel', serif; background: rgba(0,0,0,0.2); color: #e8dfc0; font-size: 1rem;">
+                <input type="email" id="waitlist-email" placeholder="Your Email Address"
+                    style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 2px;
+                            font-family: 'Cinzel', serif; background: rgba(0,0,0,0.2); color: #e8dfc0; font-size: 1rem;">
+                <button onclick="joinWaitlist()" class="cta-button"
+                    style="margin-top: 5px; border: none; cursor: pointer; align-self: flex-start;">Join Now</button>
+            </div>
+            <p id="waitlist-msg" style="margin-top: 15px; font-size: 0.9rem; min-height: 20px; font-weight: bold;"></p>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid rgba(212,175,55,0.2); margin: 3rem 0;">
+
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+            <!-- Login Form -->
+            <div id="login-section"
+                style="flex: 1 1 300px; background: rgba(255,255,255,0.03); padding: 30px; border-radius: 4px;">
+                <h3 style="margin-top: 0; color: #fff; font-size: 1.2rem;">Member Login</h3>
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                    <input type="email" id="login-email" placeholder="Email Address" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
+                                font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
+                    <input type="password" id="login-password" placeholder="Password" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
+                                font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
+                    <button onclick="loginMember()" class="cta-button"
+                        style="margin-top: 5px; border: none; cursor: pointer; padding: 12px 24px; font-size: 0.9rem;">Sign
+                        In</button>
+                </div>
+                <p id="login-msg" style="margin-top: 15px; font-size: 0.85rem; min-height: 20px; color: #ff6b6b;"></p>
+            </div>
+
+            <!-- Password Reset Form -->
+            <div id="reset-section"
+                style="flex: 1 1 300px; background: rgba(255,255,255,0.03); padding: 30px; border-radius: 4px;">
+                <h3 style="margin-top: 0; color: #fff; font-size: 1.2rem;">Reset Password</h3>
+                <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 20px; line-height: 1.5;">
+                    Enter the email address associated with your account, and we'll send you a link to reset your
+                    password.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="email" id="reset-email" placeholder="Email Address" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
+                                font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
+                    <button onclick="resetPassword()" class="cta-button"
+                        style="margin-top: 5px; border: none; cursor: pointer; padding: 12px 24px; font-size: 0.9rem; background: transparent; border: 1px solid var(--gold-accent); color: var(--gold-accent);">Send
+                        Reset Link</button>
+                </div>
+                <p id="reset-msg" style="margin-top: 15px; font-size: 0.85rem; min-height: 20px; color: #ff6b6b;"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Points to the dedicated TrelawnyTown API
+        const API_BASE = "https://trelawny-api.onrender.com/api/trelawny";
+
+        async function joinWaitlist() {
+            const nameInput = document.getElementById('waitlist-name');
+            const emailInput = document.getElementById('waitlist-email');
+            const msg = document.getElementById('waitlist-msg');
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+
+            if (!name) {
+                msg.textContent = "Please enter your name.";
+                msg.style.color = "#ff6b6b";
+                return;
+            }
+            if (!email || !email.includes('@')) {
+                msg.textContent = "Please enter a valid email address.";
+                msg.style.color = "#ff6b6b";
+                return;
+            }
+
+            msg.textContent = "Joining...";
+            msg.style.color = "#ccc";
+
+            try {
+                const res = await fetch(`${API_BASE}/join_waitlist`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email })
+                });
+
+                const data = await res.json();
+
+                if (data.status === 'ok') {
+                    msg.innerHTML = `<span style="color:var(--gold-accent);">${data.message}</span>`;
+                    nameInput.value = "";
+                    emailInput.value = "";
+                } else {
+                    msg.textContent = data.message || "Something went wrong.";
+                    msg.style.color = "#ff6b6b";
+                }
+            } catch (e) {
+                console.error(e);
+                msg.textContent = "Could not reach the server. Please try again later.";
+                msg.style.color = "#ff6b6b";
+            }
+        }
+
+        // Placeholders for future backend hookup
+        function loginMember() {
+            const msg = document.getElementById('login-msg');
+            msg.textContent = "Login functionality coming soon.";
+            msg.style.color = "#aaa";
+        }
+
+        function resetPassword() {
+            const msg = document.getElementById('reset-msg');
+            msg.textContent = "Password reset functionality coming soon.";
+            msg.style.color = "#aaa";
+        }
+    </script>
+
+    <footer>
+        <div
+            style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-start; text-align: left; padding-bottom: 2rem; border-bottom: 1px solid rgba(212,175,55,0.2);">
+            <div style="flex: 1 1 200px;">
+                <div
+                    style="font-family: 'Cinzel', serif; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 0.8rem;">
+                    Trelawny Town Maroons</div>
+                <p style="color: #888; font-size: 0.9rem; line-height: 1.6; margin: 0;">Correcting the Record. Honoring
+                    the Ancestors. 40 years of original research into the untold story of a free people who defied an
+                    empire.</p>
+            </div>
+            <div style="flex: 1 1 150px;">
+                <div
+                    style="font-family: 'Cinzel', serif; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.8rem; margin-bottom: 0.8rem;">
+                    Explore</div>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <a href="index.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
+                        onmouseover="this.style.color='#d4af37'" onmouseover="this.style.color='#d4af37'"
+                        onmouseout="this.style.color='#888'">Home</a>
+                    <a href="history.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
+                        onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">History</a>
+                    <a href="war.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
+                        onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">The War</a>
+                    <a href="treaty.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
+                        onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">Treaty</a>
+                    <a href="book.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
+                        onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">The Book</a>
+                    <a href="members.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
+                        onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">The Book</a>
+                    <a href="members.html" style="color: #d4af37; text-decoration: none; font-size: 0.9rem;">Members</a>
+                    <a href="contact.html" style="color: #888; text-decoration: none; font-size: 0.9rem;"
+                        onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">Contact</a>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; margin-bottom: 0;">&copy; 2026 TrelawnyTown.com. Dedicated to the Ancestors.</p>
+    </footer>
+
+</body>
+
+</html>
