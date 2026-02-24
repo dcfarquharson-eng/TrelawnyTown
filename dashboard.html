@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Member Dashboard - Trelawny Town Maroons</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Trelawny Town Maroons</a>
+        <div class="menu-toggle">&#9776;</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="history.html" class="nav-link">History</a>
+            <a href="treaty.html" class="nav-link">Treaty</a>
+            <a href="war.html" class="nav-link">The War</a>
+            <a href="book.html" class="nav-link">Book</a>
+            <a href="dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <div class="content-container" style="margin-top: 6rem; max-width: 900px; min-height: 60vh;">
+
+        <div
+            style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 1rem; margin-bottom: 2rem;">
+            <h1 style="color: var(--gold-accent); margin: 0; font-size: 2rem;">Member Dashboard</h1>
+            <button onclick="logoutMember()" class="cta-button"
+                style="padding: 10px 20px; font-size: 0.9rem; background: transparent; border: 1px solid #ff6b6b; color: #ff6b6b;">Sign
+                Out</button>
+        </div>
+
+        <h2 id="welcome-message" style="margin-top: 0; color: #fff; font-size: 1.5rem; margin-bottom: 3rem;">Loading...
+        </h2>
+
+        <!-- Dashboard Widgets -->
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+
+            <!-- Free PDF Download Widget -->
+            <div
+                style="flex: 1 1 400px; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 4px; border-top: 4px solid var(--gold-accent);">
+                <h3 style="margin-top: 0; color: var(--gold-accent); font-size: 1.3rem;">Exclusive Member Downloads</h3>
+                <p style="color: #ccc; line-height: 1.6; margin-bottom: 1.5rem;">
+                    As a valued member of the Trelawny Town Society, you have exclusive access to our free PDF books and
+                    historical resources.
+                </p>
+
+                <div
+                    style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+                    <div>
+                        <h4 style="margin: 0 0 5px 0; color: #fff;">The Untold Story PDF</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #aaa;">Digital Edition (PDF)</p>
+                    </div>
+                    <a href="#" id="download-pdf-btn" class="cta-button" style="margin: 0; padding: 12px 20px;"
+                        onclick="handleDownload(event)">Download Free Book</a>
+                </div>
+            </div>
+
+            <!-- Future Content Widget -->
+            <div
+                style="flex: 1 1 400px; background: rgba(255,255,255,0.02); padding: 30px; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.1);">
+                <h3 style="margin-top: 0; color: #888; font-size: 1.2rem;">Cockpit Country Map Preview</h3>
+                <p style="color: #666; line-height: 1.6; font-style: italic;">
+                    The exclusive interactive historical map of the Cockpit Country and Dragoon Hole is currently in
+                    development. You will be notified when it goes live.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Security Check Script -->
+    <script>
+        // Check if the user is authenticated immediately
+        document.addEventListener("DOMContentLoaded", () => {
+            const memberId = sessionStorage.getItem("member_id");
+            const memberName = sessionStorage.getItem("member_name");
+
+            if (!memberId || !memberName) {
+                // Not authenticated, kick them back to the login page
+                window.location.href = "members.html";
+                return;
+            }
+
+            // Authenticated! Personalize the dashboard
+            document.getElementById("welcome-message").textContent = `Welcome back, ${memberName}!`;
+        });
+
+        function logoutMember() {
+            sessionStorage.removeItem("member_id");
+            sessionStorage.removeItem("member_name");
+            window.location.href = "members.html";
+        }
+
+        function handleDownload(e) {
+            e.preventDefault();
+            alert("The free PDF book will be available for download here shortly!");
+        }
+    </script>
+
+    <footer>
+        <div
+            style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-start; text-align: left; padding-bottom: 2rem; border-bottom: 1px solid rgba(212,175,55,0.2);">
+            <div style="flex: 1 1 200px;">
+                <div
+                    style="font-family: 'Cinzel', serif; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 0.8rem;">
+                    Trelawny Town Maroons</div>
+                <p style="color: #888; font-size: 0.9rem; line-height: 1.6; margin: 0;">Correcting the Record. Honoring
+                    the Ancestors.</p>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; margin-bottom: 0;">&copy; 2026 TrelawnyTown.com. Dedicated to the Ancestors.</p>
+    </footer>
+
+</body>
+
+</html>

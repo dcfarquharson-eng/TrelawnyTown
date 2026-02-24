@@ -79,22 +79,25 @@
                 <p id="login-msg" style="margin-top: 15px; font-size: 0.85rem; min-height: 20px; color: #ff6b6b;"></p>
             </div>
 
-            <!-- Password Reset Form -->
+            <!-- Password Change Form -->
             <div id="reset-section"
                 style="flex: 1 1 300px; background: rgba(255,255,255,0.03); padding: 30px; border-radius: 4px;">
-                <h3 style="margin-top: 0; color: #fff; font-size: 1.2rem;">Reset Password</h3>
+                <h3 style="margin-top: 0; color: #fff; font-size: 1.2rem;">Change Password</h3>
                 <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 20px; line-height: 1.5;">
-                    Enter the email address associated with your account, and we'll send you a link to reset your
-                    password.
+                    Enter your email, current password, and new password to secure your account.
                 </p>
                 <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <input type="email" id="reset-email" placeholder="Email Address" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
+                    <input type="email" id="change-email" placeholder="Email Address" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
                                 font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
-                    <button onclick="resetPassword()" class="cta-button"
-                        style="margin-top: 5px; border: none; cursor: pointer; padding: 12px 24px; font-size: 0.9rem; background: transparent; border: 1px solid var(--gold-accent); color: var(--gold-accent);">Send
-                        Reset Link</button>
+                    <input type="password" id="change-current-param" placeholder="Current Password" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
+                                font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
+                    <input type="password" id="change-new-param" placeholder="New Password" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
+                                font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
+                    <button onclick="changePassword()" class="cta-button"
+                        style="margin-top: 5px; border: none; cursor: pointer; padding: 12px 24px; font-size: 0.9rem; background: transparent; border: 1px solid var(--gold-accent); color: var(--gold-accent);">Update
+                        Password</button>
                 </div>
-                <p id="reset-msg" style="margin-top: 15px; font-size: 0.85rem; min-height: 20px; color: #ff6b6b;"></p>
+                <p id="change-msg" style="margin-top: 15px; font-size: 0.85rem; min-height: 20px; color: #ff6b6b;"></p>
             </div>
         </div>
 
@@ -149,17 +152,107 @@
             }
         }
 
-        // Placeholders for future backend hookup
-        function loginMember() {
+        // Check login state on load to forward to dashboard if already logged in
+        document.addEventListener("DOMContentLoaded", () => {
+            if (sessionStorage.getItem("member_id")) {
+                window.location.href = "dashboard.html";
+            }
+        });
+
+        async function loginMember() {
+            const emailInput = document.getElementById('login-email');
+            const passwordInput = document.getElementById('login-password');
             const msg = document.getElementById('login-msg');
-            msg.textContent = "Login functionality coming soon.";
-            msg.style.color = "#aaa";
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (!email || !password) {
+                msg.textContent = "Please enter both email and password.";
+                msg.style.color = "#ff6b6b";
+                return;
+            }
+
+            msg.textContent = "Authenticating...";
+            msg.style.color = "#ccc";
+
+            try {
+                const res = await fetch(`${API_BASE}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await res.json();
+
+                if (data.status === 'ok') {
+                    msg.style.color = "var(--gold-accent)";
+                    msg.textContent = "Success! Redirecting to Dashboard...";
+
+                    // Save session state
+                    sessionStorage.setItem("member_id", data.member_id);
+                    sessionStorage.setItem("member_name", data.name);
+
+                    // Redirect
+                    setTimeout(() => {
+                        window.location.href = "dashboard.html";
+                    }, 800);
+                } else {
+                    msg.textContent = data.message || "Login failed.";
+                    msg.style.color = "#ff6b6b";
+                }
+            } catch (e) {
+                console.error(e);
+                msg.textContent = "Could not reach the authentication server.";
+                msg.style.color = "#ff6b6b";
+            }
         }
 
-        function resetPassword() {
-            const msg = document.getElementById('reset-msg');
-            msg.textContent = "Password reset functionality coming soon.";
-            msg.style.color = "#aaa";
+        async function changePassword() {
+            const emailInput = document.getElementById('change-email');
+            const currentPwInput = document.getElementById('change-current-param');
+            const newPwInput = document.getElementById('change-new-param');
+            const msg = document.getElementById('change-msg');
+
+            const email = emailInput.value.trim();
+            const currentPassword = currentPwInput.value.trim();
+            const newPassword = newPwInput.value.trim();
+
+            if (!email || !currentPassword || !newPassword) {
+                msg.textContent = "Please fill in all fields.";
+                msg.style.color = "#ff6b6b";
+                return;
+            }
+
+            msg.textContent = "Updating password...";
+            msg.style.color = "#ccc";
+
+            try {
+                const res = await fetch(`${API_BASE}/change_password`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: email,
+                        current_password: currentPassword,
+                        new_password: newPassword
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.status === 'ok') {
+                    msg.innerHTML = `<span style="color:var(--gold-accent);">${data.message}</span>`;
+                    currentPwInput.value = "";
+                    newPwInput.value = "";
+                } else {
+                    msg.textContent = data.message || "Failed to update password.";
+                    msg.style.color = "#ff6b6b";
+                }
+            } catch (e) {
+                console.error(e);
+                msg.textContent = "Could not reach the authentication server.";
+                msg.style.color = "#ff6b6b";
+            }
         }
     </script>
 
