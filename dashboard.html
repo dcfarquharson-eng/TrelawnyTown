@@ -31,18 +31,31 @@
         </div>
     </nav>
 
-    <div class="content-container" style="margin-top: 6rem; max-width: 1000px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-            <h1 style="color: var(--gold-accent); margin: 0;">Society Dashboard</h1>
-            <button onclick="logoutMember()" class="cta-button"
-                style="background: transparent; border: 1px solid #ff6b6b; color: #ff6b6b; padding: 8px 16px; font-size: 0.85rem; cursor: pointer;">Sign
-                Out</button>
+    <div class="hero">
+        <div class="hero-container">
+            <div class="hero-image-wrapper">
+                <span class="hero-caption">The Private Archive<br>Society Members Only</span>
+                <img src="Pictures/dashboard_hero.png" alt="Ancient leather-bound ledger on a dark oak desk"
+                    style="border-radius: 4px;">
+            </div>
+            <div class="hero-content">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <h1 style="margin: 0;">Society Dashboard</h1>
+                    <button onclick="logoutMember()" class="cta-button"
+                        style="background: transparent; border: 1px solid #ff6b6b; color: #ff6b6b; padding: 8px 16px; font-size: 0.85rem; cursor: pointer; margin: 0;">Sign
+                        Out</button>
+                </div>
+                <p id="welcome-msg" style="margin-top: 1rem; font-size: 1.1rem; color: #eaeaea;">Loading your private
+                    archive...</p>
+                <a href="#dashboard-widgets" class="cta-button"
+                    onclick="document.getElementById('dashboard-widgets').scrollIntoView({behavior: 'smooth'}); return false;">Explore
+                    Archive</a>
+            </div>
         </div>
+    </div>
 
-        <p id="welcome-msg" style="font-size: 1.1rem; color: #eaeaea; margin-bottom: 3rem; line-height: 1.6;">
-            <!-- JS will populate -->
-        </p>
-
+    <div class="content-container" id="dashboard-widgets" style="max-width: 1000px;">
         <!-- Dashboard Widgets -->
         <div style="display: flex; flex-direction: column; gap: 2rem;">
 
