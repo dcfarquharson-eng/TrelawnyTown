@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="The Trelawny Town Maroons AI Research Feed. See how our RAG system is uncovering truth from 18th-century archives.">
+    <title>AI Research Feed - Trelawny Town Maroons</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        .research-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .ai-status-panel {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--gold-accent);
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .ai-status-icon {
+            font-size: 3rem;
+            color: var(--gold-accent);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.7;
+                transform: scale(0.95);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 0.7;
+                transform: scale(0.95);
+            }
+        }
+
+        .ai-status-text h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-status-text p {
+            margin: 0;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .research-entry {
+            background: rgba(20, 20, 20, 0.6);
+            border-left: 4px solid var(--maroon-red);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 4px 4px 0;
+            position: relative;
+        }
+
+        .entry-date {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-accent);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: inline-block;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 0.3rem;
+        }
+
+        .entry-query {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .entry-query::before {
+            content: 'User Query: ';
+            font-weight: bold;
+            color: var(--gold-accent);
+            font-style: normal;
+        }
+
+        .ai-response {
+            background: rgba(46, 77, 50, 0.3);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e0e0e0;
+        }
+
+        .ai-response h4 {
+            margin-top: 0;
+            color: var(--gold-accent);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .source-evidence {
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--gold-accent);
+            font-size: 0.95rem;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .source-evidence strong {
+            color: #ccc;
+            font-family: 'Cinzel', serif;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .ai-status-panel {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Trelawny Town Maroons</a>
+        <div class="menu-toggle">&#9776;</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="history.html" class="nav-link">History</a>
+            <a href="treaty.html" class="nav-link">Treaty</a>
+            <a href="war.html" class="nav-link">The War</a>
+            <a href="research.html" class="nav-link active">AI Research</a>
+            <a href="book.html" class="nav-link">Book</a>
+            <a href="members.html" class="nav-link">Members</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>AI Historical Research</h1>
+        <p>Uncovering the truth using advanced Retrieval-Augmented Generation (RAG) technology.</p>
+    </div>
+
+    <!-- SUPPORT BANNER (Reused from Index) -->
+    <div class="support-banner-section" style="margin-bottom: 2rem;">
+        <div class="support-banner-container">
+            <div class="support-text">
+                <h2>Help Us Build the Archival Server</h2>
+                <p>Our AI system currently runs locally and cannot handle public access. By donating to our
+                    <strong>GoFundMe</strong>, you help us purchase a dedicated, robust server so the world can search
+                    these 18th-century archives directly.</p>
+            </div>
+            <div class="support-action">
+                <a href="https://www.gofundme.com/f/help-launch-the-trelawny-maroons-history-institute" target="_blank"
+                    class="gofundme-btn">Support the Server Fund</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESEARCH CONTENT -->
+    <div class="research-container">
+
+        <div class="ai-status-panel">
+            <div class="ai-status-icon">⚙️</div>
+            <div class="ai-status-text">
+                <h2>The Institute's AI Historian (Local Mode)</h2>
+                <p>We have digitized and vectorized thousands of pages of rare historical texts, military journals, and
+                    parliamentary records. Below is a live feed of actual queries and historical evidence recovered by
+                    our local AI agent, completely bypassing traditional, colonial revisionism.</p>
+            </div>
+        </div>
+
+        <h2 class="section-heading">Recent Recoveries</h2>
+
+        <!-- Entry 1 -->
+        <div class="research-entry visible">
+            <div class="entry-date">Recovered: Feb 22, 2026</div>
+            <div class="entry-query">"What exactly happened at the Sandford Ambush in August 1795?"</div>
+
+            <div class="ai-response">
+                <h4>🧠 AI Historian Synthesis</h4>
+                <p>The evidence indicates that Colonel Sandford ignored direct orders to halt his advance. Eager for
+                    glory, he led a detachment of dragoons deep into a narrow defile (Maaga Bay Road) toward the
+                    abandoned 'New Town'. The Maroons, possessing absolute mastery of the terrain, had set a brilliant
+                    U-shaped ambush on the limestone ridges.</p>
+                <p>As Sandford's men rode into the trap, Captain Leonard Parkinson's forces opened fire from complete
+                    concealment. Sandford and dozens of his men were killed instantly. The Maroons suffered zero
+                    casualties, demonstrating superior tactical execution over regular British cavalry.</p>
+            </div>
+
+            <div class="source-evidence">
+                <strong>Primary Source Extracted from Vector DB:</strong>
+                "Colonel Sandford, pushing blindly forward with his Dragoons into the defile, was immediately met by a
+                tremendous volley of musketry from unseen hands among the rocks... The Maroons simply melted back into
+                the deep woods... It was a total massacre."
+                <br><em>— Dallas, R.C. The History of the Maroons (1803), Vol 1, p. 192</em>
+            </div>
+        </div>
+
+        <!-- Entry 2 -->
+        <div class="research-entry visible">
+            <div class="entry-date">Recovered: Feb 18, 2026</div>
+            <div class="entry-query">"Were the terms of the 1738 Treaty honored by the British?"</div>
+
+            <div class="ai-response">
+                <h4>🧠 AI Historian Synthesis</h4>
+                <p>Retrieval analysis of colonial records reveals systemic, deliberate violations of the 1738 Treaty by
+                    the Jamaican Assembly. While the printed treaty promised autonomy and 1,500 acres of land,
+                    subsequent colonial laws slowly stripped the Maroons of their rights, restricted their movements,
+                    and encroached upon their borders to benefit white plantation owners.</p>
+            </div>
+
+            <div class="source-evidence">
+                <strong>Primary Source Extracted from Vector DB:</strong>
+                "No Maroon shall walk outside the limits of their town without a written ticket from the white
+                superintendent, under pain of whipping... Their lands, being unsurveyed, were systematically encroached
+                upon by neighboring planters, leaving the Maroons with little fertile ground for provisions."
+                <br><em>— Edwards, Bryan. Proceedings of the Governor and Assembly... (1796), p. 45</em>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div
+            style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-start; text-align: left; padding-bottom: 2rem; border-bottom: 1px solid rgba(212,175,55,0.2);">
+            <div style="flex: 1 1 200px;">
+                <div
+                    style="font-family: 'Cinzel', serif; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 0.8rem;">
+                    Trelawny Town Maroons</div>
+                <p style="color: #888; font-size: 0.9rem; line-height: 1.6; margin: 0;">Correcting the Record. Honoring
+                    the Ancestors. 40 years of original research.</p>
+            </div>
+            <div style="flex: 1 1 150px;">
+                <div
+                    style="font-family: 'Cinzel', serif; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.8rem; margin-bottom: 0.8rem;">
+                    Explore</div>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <a href="index.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Home</a>
+                    <a href="research.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">AI
+                        Research</a>
+                    <a href="book.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">The Book</a>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; margin-bottom: 0;">&copy; 2026 TrelawnyTown.com. Dedicated to the Ancestors.</p>
+    </footer>
+
+</body>
+
+</html>
