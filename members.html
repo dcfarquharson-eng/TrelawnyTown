@@ -32,72 +32,105 @@
     <div class="content-container" style="margin-top: 6rem; max-width: 800px;">
         <h1 style="text-align: center; color: var(--gold-accent); margin-bottom: 2rem;">Society Members</h1>
 
-        <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto; line-height: 1.8;">
-            Welcome to the Trelawny Town Society. Join the waitlist for exclusive previews, or log in to manage your
-            membership.
-        </p>
+        <div class="auth-tile-wrapper"
+            style="display: flex; justify-content: center; align-items: center; min-height: 60vh;">
 
-        <!-- Society Waitlist Form (Moved from Book page) -->
-        <div id="waitlist-section"
-            style="margin-bottom: 3rem; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 4px; border-left: 4px solid var(--gold-accent);">
-            <h3 style="margin-top: 0; color: var(--gold-accent);">Join the Trelawny Town Society</h3>
-            <p style="font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">
-                Enter your details to join the waitlist and receive an exclusive preview of the <strong>Cockpit Country
-                    Maps</strong>.
-                A login password will be emailed to you.
-            </p>
+            <!-- THE AUTH TILE -->
+            <div id="auth-tile"
+                style="width: 100%; max-width: 450px; background: #0f1712; padding: 40px; border-radius: 8px; border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
 
-            <div style="display: flex; flex-direction: column; gap: 15px;">
-                <input type="text" id="waitlist-name" placeholder="Your Full Name"
-                    style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 2px;
-                            font-family: 'Cinzel', serif; background: rgba(0,0,0,0.2); color: #e8dfc0; font-size: 1rem;">
-                <input type="email" id="waitlist-email" placeholder="Your Email Address"
-                    style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 2px;
-                            font-family: 'Cinzel', serif; background: rgba(0,0,0,0.2); color: #e8dfc0; font-size: 1rem;">
-                <button onclick="joinWaitlist()" class="cta-button"
-                    style="margin-top: 5px; border: none; cursor: pointer; align-self: flex-start;">Join Now</button>
-            </div>
-            <p id="waitlist-msg" style="margin-top: 15px; font-size: 0.9rem; min-height: 20px; font-weight: bold;"></p>
-        </div>
+                <!-- VIEW 1: LOGIN (Default) -->
+                <div id="view-login" style="display: block;">
+                    <h2
+                        style="margin-top: 0; color: var(--gold-accent); text-align: center; font-size: 1.6rem; letter-spacing: 1px;">
+                        Sign In</h2>
+                    <p style="text-align: center; color: #ccc; font-size: 0.9rem; margin-bottom: 25px;">Enter your
+                        credentials to access the Institute.</p>
 
-        <hr style="border: none; border-top: 1px solid rgba(212,175,55,0.2); margin: 3rem 0;">
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="email" id="login-email" placeholder="Email Address"
+                            style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
+                        <input type="password" id="login-password" placeholder="Password"
+                            style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
 
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-            <!-- Login Form -->
-            <div id="login-section"
-                style="flex: 1 1 300px; background: rgba(255,255,255,0.03); padding: 30px; border-radius: 4px;">
-                <h3 style="margin-top: 0; color: #fff; font-size: 1.2rem;">Member Login</h3>
-                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-                    <input type="email" id="login-email" placeholder="Email Address" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
-                                font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
-                    <input type="password" id="login-password" placeholder="Password" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
-                                font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
-                    <button onclick="loginMember()" class="cta-button"
-                        style="margin-top: 5px; border: none; cursor: pointer; padding: 12px 24px; font-size: 0.9rem;">Sign
-                        In</button>
+                        <button onclick="loginMember()" class="cta-button"
+                            style="margin-top: 10px; width: 100%; border: none; cursor: pointer; padding: 14px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">Enter</button>
+                    </div>
+
+                    <p id="login-msg"
+                        style="text-align: center; margin-top: 15px; font-size: 0.85rem; min-height: 20px; color: #ff6b6b;">
+                    </p>
+
+                    <div
+                        style="text-align: center; margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                        <span style="color: #888; font-size: 0.85rem;">Need an account? <a href="#"
+                                onclick="showView('join'); return false;"
+                                style="color: var(--gold-accent); text-decoration: none;">Request Access</a></span>
+                        <a href="#" onclick="showView('change-pwd'); return false;"
+                            style="color: #888; font-size: 0.85rem; text-decoration: none;">Change Password</a>
+                    </div>
                 </div>
-                <p id="login-msg" style="margin-top: 15px; font-size: 0.85rem; min-height: 20px; color: #ff6b6b;"></p>
-            </div>
 
-            <!-- Password Change Form -->
-            <div id="reset-section"
-                style="flex: 1 1 300px; background: rgba(255,255,255,0.03); padding: 30px; border-radius: 4px;">
-                <h3 style="margin-top: 0; color: #fff; font-size: 1.2rem;">Change Password</h3>
-                <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 20px; line-height: 1.5;">
-                    Enter your email, current password, and new password to secure your account.
-                </p>
-                <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <input type="email" id="change-email" placeholder="Email Address" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
-                                font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
-                    <input type="password" id="change-current-param" placeholder="Current Password" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
-                                font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
-                    <input type="password" id="change-new-param" placeholder="New Password" style="padding: 12px; border: 1px solid #444; border-radius: 2px;
-                                font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.3); color: #fff;">
-                    <button onclick="changePassword()" class="cta-button"
-                        style="margin-top: 5px; border: none; cursor: pointer; padding: 12px 24px; font-size: 0.9rem; background: transparent; border: 1px solid var(--gold-accent); color: var(--gold-accent);">Update
-                        Password</button>
+                <!-- VIEW 2: JOIN WAITLIST -->
+                <div id="view-join" style="display: none;">
+                    <h2
+                        style="margin-top: 0; color: var(--gold-accent); text-align: center; font-size: 1.6rem; letter-spacing: 1px;">
+                        Request Access</h2>
+                    <p style="text-align: center; color: #ccc; font-size: 0.9rem; margin-bottom: 25px;">Join the
+                        waitlist to receive your login credentials.</p>
+
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="text" id="waitlist-name" placeholder="Full Name"
+                            style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
+                        <input type="email" id="waitlist-email" placeholder="Email Address"
+                            style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
+
+                        <button onclick="joinWaitlist()" class="cta-button"
+                            style="margin-top: 10px; width: 100%; border: none; cursor: pointer; padding: 14px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">Submit
+                            Request</button>
+                    </div>
+
+                    <p id="waitlist-msg"
+                        style="text-align: center; margin-top: 15px; font-size: 0.85rem; min-height: 20px; color: #ff6b6b; font-weight: bold;">
+                    </p>
+
+                    <div style="text-align: center; margin-top: 20px;">
+                        <a href="#" onclick="showView('login'); return false;"
+                            style="color: #888; font-size: 0.85rem; text-decoration: none;">&larr; Back to Sign In</a>
+                    </div>
                 </div>
-                <p id="change-msg" style="margin-top: 15px; font-size: 0.85rem; min-height: 20px; color: #ff6b6b;"></p>
+
+                <!-- VIEW 3: CHANGE PASSWORD -->
+                <div id="view-change-pwd" style="display: none;">
+                    <h2
+                        style="margin-top: 0; color: var(--gold-accent); text-align: center; font-size: 1.6rem; letter-spacing: 1px;">
+                        Change Password</h2>
+                    <p style="text-align: center; color: #ccc; font-size: 0.9rem; margin-bottom: 25px;">Secure your
+                        account with a new password.</p>
+
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="email" id="change-email" placeholder="Email Address"
+                            style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
+                        <input type="password" id="change-current-param" placeholder="Current Password"
+                            style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
+                        <input type="password" id="change-new-param" placeholder="New Password"
+                            style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
+
+                        <button onclick="changePassword()" class="cta-button"
+                            style="margin-top: 10px; width: 100%; border: none; cursor: pointer; padding: 14px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; background: transparent; border: 1px solid var(--gold-accent); color: var(--gold-accent);">Update</button>
+                    </div>
+
+                    <p id="change-msg"
+                        style="text-align: center; margin-top: 15px; font-size: 0.85rem; min-height: 20px; color: #ff6b6b;">
+                    </p>
+
+                    <div style="text-align: center; margin-top: 20px;">
+                        <a href="#" onclick="showView('login'); return false;"
+                            style="color: #888; font-size: 0.85rem; text-decoration: none;">Cancel &amp; Return to Sign
+                            In</a>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -106,6 +139,28 @@
     <script>
         // Points to the dedicated TrelawnyTown API
         const API_BASE = "https://trelawny-api.onrender.com/api/trelawny";
+
+        // View Toggling Logic
+        function showView(viewId) {
+            // Hide all views
+            document.getElementById('view-login').style.display = 'none';
+            document.getElementById('view-join').style.display = 'none';
+            document.getElementById('view-change-pwd').style.display = 'none';
+
+            // Clear any error/success messages whenever we switch views
+            document.getElementById('login-msg').textContent = '';
+            document.getElementById('waitlist-msg').textContent = '';
+            document.getElementById('change-msg').textContent = '';
+
+            // Show target view
+            if (viewId === 'login') {
+                document.getElementById('view-login').style.display = 'block';
+            } else if (viewId === 'join') {
+                document.getElementById('view-join').style.display = 'block';
+            } else if (viewId === 'change-pwd') {
+                document.getElementById('view-change-pwd').style.display = 'block';
+            }
+        }
 
         async function joinWaitlist() {
             const nameInput = document.getElementById('waitlist-name');
