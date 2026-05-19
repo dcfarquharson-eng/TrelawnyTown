@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Documentaries and video research on the Trelawny Town Maroons — exploring the history, the war, and the legacy.">
+    <title>Videos & Documentaries - Trelawny Town Maroons</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        .videos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .video-card {
+            background: rgba(20, 20, 20, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-top: 4px solid var(--gold-accent);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .video-info h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            color: #fff;
+            border: none;
+            padding: 0;
+        }
+
+        .video-info p {
+            font-size: 0.95rem;
+            color: #ccc;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Trelawny Town Maroons</a>
+        <div class="menu-toggle">&#9776;</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="history.html" class="nav-link">History</a>
+            <a href="treaty.html" class="nav-link">Treaty</a>
+            <a href="war.html" class="nav-link">The War</a>
+            <a href="research.html" class="nav-link">AI Research</a>
+            <a href="book.html" class="nav-link">Book</a>
+            <a href="videos.html" class="nav-link active">Videos</a>
+            <a href="members.html" class="nav-link">Members</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Documentaries & Media</h1>
+        <p>Visualizing the History and Legacy of the Trelawny Town Maroons</p>
+    </div>
+
+    <div class="container">
+        <div class="text-block">
+            <h2>The Video Archive</h2>
+            <p>
+                As part of our ongoing effort to document and share the true history of the Trelawny Town Maroons, 
+                we are producing a series of deep-dive documentaries and research videos. These videos explore the 
+                landscapes, the treaties, the betrayals, and the unbreakable spirit of the Maroon people.
+            </p>
+            <p>
+                Watch our latest installments below. More videos will be added as our research continues.
+            </p>
+        </div>
+
+        <div class="videos-grid">
+            <!-- Video 1 -->
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/z-0wc25G2ZU?start=89" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>The Second Maroon War</h3>
+                    <p>An in-depth look at the events surrounding the conflict of 1795.</p>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/m9mQpEhPPqk?start=2277" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>The Betrayal and Exile</h3>
+                    <p>Exploring the aftermath of the war and the forced exile to Nova Scotia and Sierra Leone.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-start; text-align: left; padding-bottom: 2rem; border-bottom: 1px solid rgba(212,175,55,0.2);">
+            <div style="flex: 1 1 200px;">
+                <div style="font-family: 'Cinzel', serif; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 0.8rem;">
+                    Trelawny Town Maroons</div>
+                <p style="color: #888; font-size: 0.9rem; line-height: 1.6; margin: 0;">Correcting the Record. Honoring
+                    the Ancestors. 40 years of original research into the untold story of a free people who defied an
+                    empire.</p>
+            </div>
+            <div style="flex: 1 1 150px;">
+                <div style="font-family: 'Cinzel', serif; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.8rem; margin-bottom: 0.8rem;">
+                    Explore</div>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <a href="index.html" style="color: #888; text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">Home</a>
+                    <a href="history.html" style="color: #888; text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">History</a>
+                    <a href="war.html" style="color: #888; text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">The War</a>
+                    <a href="treaty.html" style="color: #888; text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">Treaty</a>
+                    <a href="book.html" style="color: #888; text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">The Book</a>
+                    <a href="videos.html" style="color: #888; text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">Videos</a>
+                    <a href="members.html" style="color: #888; text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">Members</a>
+                    <a href="contact.html" style="color: #888; text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#888'">Contact</a>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; margin-bottom: 0;">&copy; 2026 TrelawnyTown.com. Dedicated to the Ancestors of
+            Trelawny Town.</p>
+    </footer>
+
+</body>
+
+</html>
