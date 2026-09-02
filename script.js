@@ -52,4 +52,49 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
         }
     });
+
+    // Book Waitlist Form
+    const waitlistForm = document.getElementById('book-waitlist-form');
+    if (waitlistForm) {
+        waitlistForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const emailInput = document.getElementById('waitlist-email');
+            const messageDiv = document.getElementById('waitlist-message');
+            const submitButton = waitlistForm.querySelector('button[type="submit"]');
+
+            const email = emailInput.value.trim();
+            if (!email) return;
+
+            submitButton.disabled = true;
+            submitButton.textContent = "Joining...";
+            messageDiv.style.display = 'none';
+            messageDiv.className = 'waitlist-message';
+
+            try {
+                const response = await fetch('https://trelawny-backend.onrender.com/api/join_waitlist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    messageDiv.textContent = "Success! You are on the VIP waitlist.";
+                    messageDiv.classList.add('success');
+                    emailInput.value = '';
+                } else {
+                    messageDiv.textContent = data.detail || "An error occurred. Please try again.";
+                    messageDiv.classList.add('error');
+                }
+            } catch (err) {
+                messageDiv.textContent = "Network error. Please try again later.";
+                messageDiv.classList.add('error');
+            }
+
+            messageDiv.style.display = 'block';
+            submitButton.disabled = false;
+            submitButton.textContent = "Join the Waitlist";
+        });
+    }
 });
