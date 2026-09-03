@@ -30,8 +30,34 @@
         </div>
     </nav>
 
-    <div class="hero">
-        <div class="hero-container">
+    <div class="hero" style="flex-direction: column; padding-top: 5rem; gap: 3rem;">
+        
+        <!-- Timer at the absolute top of the hero section -->
+        <div class="countdown-wrapper" style="text-align: center; position: relative; z-index: 10; width: 100%;">
+            <div style="background: rgba(26, 46, 29, 0.85); backdrop-filter: blur(10px); border: 2px solid var(--gold-accent, #d4af37); border-radius: 8px; display: inline-block; padding: 2rem 4rem; box-shadow: 0 15px 40px rgba(0,0,0,0.7);">
+                <h2 style="color: var(--gold-accent, #d4af37); font-family: 'Cinzel', serif; margin-top: 0; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 3px; font-size: 2.2rem; border-bottom: none;">Official Launch</h2>
+                <div id="countdown-timer" style="display: flex; gap: 3rem; justify-content: center;">
+                    <div class="time-block">
+                        <span id="days" style="font-size: 4rem; font-weight: bold; color: #fff; text-shadow: 0 2px 15px rgba(212,175,55,0.5);">00</span>
+                        <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; font-weight: bold;">Days</div>
+                    </div>
+                    <div class="time-block">
+                        <span id="hours" style="font-size: 4rem; font-weight: bold; color: #fff; text-shadow: 0 2px 15px rgba(212,175,55,0.5);">00</span>
+                        <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; font-weight: bold;">Hours</div>
+                    </div>
+                    <div class="time-block">
+                        <span id="minutes" style="font-size: 4rem; font-weight: bold; color: #fff; text-shadow: 0 2px 15px rgba(212,175,55,0.5);">00</span>
+                        <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; font-weight: bold;">Minutes</div>
+                    </div>
+                    <div class="time-block">
+                        <span id="seconds" style="font-size: 4rem; font-weight: bold; color: #fff; text-shadow: 0 2px 15px rgba(212,175,55,0.5);">00</span>
+                        <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; font-weight: bold;">Seconds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-container" style="margin-top: 1rem;">
             <div class="hero-image-wrapper">
                 <span class="hero-caption">Coming Soon<br>A Groundbreaking Work</span>
                 <img src="Pictures/book_cover.jpg" alt="The Unconquered — Book Cover"
@@ -41,30 +67,6 @@
                 <h1>The Unconquered</h1>
                 <p>"The Untold Story of the Trelawny Town Maroons — 40 years of research, finally brought to light."</p>
                 <a href="#book-content" class="cta-button">Learn More</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="countdown-wrapper" style="text-align: center; margin-top: -3rem; position: relative; z-index: 10;">
-        <div style="background: rgba(26, 46, 29, 0.85); backdrop-filter: blur(10px); border: 2px solid var(--gold-accent, #d4af37); border-radius: 8px; display: inline-block; padding: 2rem 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <h2 style="color: var(--gold-accent, #d4af37); font-family: 'Cinzel', serif; margin-top: 0; text-transform: uppercase; letter-spacing: 2px;">Official Launch</h2>
-            <div id="countdown-timer" style="display: flex; gap: 2.5rem; justify-content: center;">
-                <div class="time-block">
-                    <span id="days" style="font-size: 3.5rem; font-weight: bold; color: #fff; text-shadow: 0 2px 10px rgba(212,175,55,0.4);">00</span>
-                    <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.9rem; font-weight: bold;">Days</div>
-                </div>
-                <div class="time-block">
-                    <span id="hours" style="font-size: 3.5rem; font-weight: bold; color: #fff; text-shadow: 0 2px 10px rgba(212,175,55,0.4);">00</span>
-                    <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.9rem; font-weight: bold;">Hours</div>
-                </div>
-                <div class="time-block">
-                    <span id="minutes" style="font-size: 3.5rem; font-weight: bold; color: #fff; text-shadow: 0 2px 10px rgba(212,175,55,0.4);">00</span>
-                    <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.9rem; font-weight: bold;">Minutes</div>
-                </div>
-                <div class="time-block">
-                    <span id="seconds" style="font-size: 3.5rem; font-weight: bold; color: #fff; text-shadow: 0 2px 10px rgba(212,175,55,0.4);">00</span>
-                    <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.9rem; font-weight: bold;">Seconds</div>
-                </div>
             </div>
         </div>
     </div>
