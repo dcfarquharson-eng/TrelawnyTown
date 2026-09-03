@@ -45,7 +45,31 @@
         </div>
     </div>
 
-    <div class="content-container" id="book-content">
+    <div class="countdown-wrapper" style="text-align: center; margin-top: -3rem; position: relative; z-index: 10;">
+        <div style="background: rgba(26, 46, 29, 0.85); backdrop-filter: blur(10px); border: 2px solid var(--gold-accent, #d4af37); border-radius: 8px; display: inline-block; padding: 2rem 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <h2 style="color: var(--gold-accent, #d4af37); font-family: 'Cinzel', serif; margin-top: 0; text-transform: uppercase; letter-spacing: 2px;">Official Launch</h2>
+            <div id="countdown-timer" style="display: flex; gap: 2.5rem; justify-content: center;">
+                <div class="time-block">
+                    <span id="days" style="font-size: 3.5rem; font-weight: bold; color: #fff; text-shadow: 0 2px 10px rgba(212,175,55,0.4);">00</span>
+                    <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.9rem; font-weight: bold;">Days</div>
+                </div>
+                <div class="time-block">
+                    <span id="hours" style="font-size: 3.5rem; font-weight: bold; color: #fff; text-shadow: 0 2px 10px rgba(212,175,55,0.4);">00</span>
+                    <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.9rem; font-weight: bold;">Hours</div>
+                </div>
+                <div class="time-block">
+                    <span id="minutes" style="font-size: 3.5rem; font-weight: bold; color: #fff; text-shadow: 0 2px 10px rgba(212,175,55,0.4);">00</span>
+                    <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.9rem; font-weight: bold;">Minutes</div>
+                </div>
+                <div class="time-block">
+                    <span id="seconds" style="font-size: 3.5rem; font-weight: bold; color: #fff; text-shadow: 0 2px 10px rgba(212,175,55,0.4);">00</span>
+                    <div style="color: #a8c6ae; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.9rem; font-weight: bold;">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-container" id="book-content" style="margin-top: 2rem;">
 
         <div class="book-card">
             <h2>About the Book</h2>
@@ -129,6 +153,37 @@
         <p style="margin-top: 2rem; margin-bottom: 0;">&copy; 2026 TrelawnyTown.com. Dedicated to the Ancestors.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set the date we're counting down to (6 weeks from Sept 3, 2026 -> Oct 15, 2026)
+            const countDownDate = new Date("Oct 15, 2026 12:00:00").getTime();
+
+            const x = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                const daysEl = document.getElementById("days");
+                if(daysEl) {
+                    daysEl.innerHTML = days < 10 ? '0' + days : days;
+                    document.getElementById("hours").innerHTML = hours < 10 ? '0' + hours : hours;
+                    document.getElementById("minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes;
+                    document.getElementById("seconds").innerHTML = seconds < 10 ? '0' + seconds : seconds;
+                }
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    if(daysEl) {
+                        document.getElementById("countdown-timer").innerHTML = "<h3 style='color:#d4af37; font-size: 2rem; margin: 0;'>THE BOOK IS LIVE!</h3>";
+                    }
+                }
+            }, 1000);
+        });
+    </script>
 </body>
 
 </html>
