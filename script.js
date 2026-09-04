@@ -59,10 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
         waitlistForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const emailInput = document.getElementById('waitlist-email');
+            const captchaInput = document.getElementById('book-waitlist-captcha');
             const messageDiv = document.getElementById('waitlist-message');
             const submitButton = waitlistForm.querySelector('button[type="submit"]');
 
             const email = emailInput.value.trim();
+            const captcha = captchaInput ? captchaInput.value.trim() : '';
             if (!email) return;
 
             submitButton.disabled = true;
@@ -74,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch('https://trelawny-backend.onrender.com/api/join_waitlist', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: email })
+                    body: JSON.stringify({ email: email, captcha: captcha })
                 });
 
                 const data = await response.json();
