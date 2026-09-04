@@ -54,6 +54,10 @@
                         <input type="password" id="login-password" placeholder="Password"
                             style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
 
+                        <label for="login-captcha" style="color: var(--gold-accent); font-size: 0.85rem; margin-top: 5px;">Anti-Spam: What is 3 + 4?</label>
+                        <input type="text" id="login-captcha" placeholder="Enter the answer as a number"
+                            style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
+
                         <button onclick="loginMember()" class="cta-button"
                             style="margin-top: 10px; width: 100%; border: none; cursor: pointer; padding: 14px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">Enter</button>
                     </div>
@@ -119,6 +123,10 @@
                         <input type="password" id="change-current-param" placeholder="Current Password"
                             style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
                         <input type="password" id="change-new-param" placeholder="New Password"
+                            style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
+
+                        <label for="change-captcha" style="color: var(--gold-accent); font-size: 0.85rem; margin-top: 5px;">Anti-Spam: What is 3 + 4?</label>
+                        <input type="text" id="change-captcha" placeholder="Enter the answer as a number"
                             style="padding: 14px; border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; font-family: 'Inter', sans-serif; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem;">
 
                         <button onclick="changePassword()" class="cta-button"
@@ -224,10 +232,12 @@
         async function loginMember() {
             const emailInput = document.getElementById('login-email');
             const passwordInput = document.getElementById('login-password');
+            const captchaInput = document.getElementById('login-captcha');
             const msg = document.getElementById('login-msg');
 
             const email = emailInput.value.trim();
             const password = passwordInput.value.trim();
+            const captcha = captchaInput ? captchaInput.value.trim() : '';
 
             if (!email || !password) {
                 msg.textContent = "Please enter both email and password.";
@@ -242,7 +252,7 @@
                 const res = await fetch(`${API_BASE}/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
+                    body: JSON.stringify({ email, password, captcha })
                 });
 
                 const data = await res.json();
@@ -274,11 +284,13 @@
             const emailInput = document.getElementById('change-email');
             const currentPwInput = document.getElementById('change-current-param');
             const newPwInput = document.getElementById('change-new-param');
+            const captchaInput = document.getElementById('change-captcha');
             const msg = document.getElementById('change-msg');
 
             const email = emailInput.value.trim();
             const currentPassword = currentPwInput.value.trim();
             const newPassword = newPwInput.value.trim();
+            const captcha = captchaInput ? captchaInput.value.trim() : '';
 
             if (!email || !currentPassword || !newPassword) {
                 msg.textContent = "Please fill in all fields.";
@@ -296,7 +308,8 @@
                     body: JSON.stringify({
                         email: email,
                         current_password: currentPassword,
-                        new_password: newPassword
+                        new_password: newPassword,
+                        captcha: captcha
                     })
                 });
 

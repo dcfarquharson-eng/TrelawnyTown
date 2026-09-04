@@ -903,7 +903,7 @@ img {
 
 /* WAITLIST FORM */
 .waitlist-section {
-    background: linear-gradient(135deg, rgba(128, 0, 0, 0.85), rgba(90, 0, 0, 0.95));
+    background: linear-gradient(135deg, var(--forest-dark), rgba(0, 0, 0, 0.9));
     border: 1px solid var(--gold-accent);
     padding: 3rem;
     margin: 4rem auto;
