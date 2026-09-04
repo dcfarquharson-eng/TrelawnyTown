@@ -153,20 +153,17 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1.5rem;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto 4rem auto;
             text-align: center;
         }
 
-        /* Based on the image, the grid has 4 columns max */
+        /* 5 columns on desktop */
         @media (min-width: 900px) {
             .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .stats-grid .stat-box:nth-child(5) {
-                grid-column: 1 / 2;
+                grid-template-columns: repeat(5, 1fr);
             }
         }
 
