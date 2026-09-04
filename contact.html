@@ -209,6 +209,11 @@
                 <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
             </div>
 
+            <div class="form-group">
+                <label for="captcha">Anti-Spam: What is 3 + 4?</label>
+                <input type="text" id="captcha" name="captcha" placeholder="Enter the answer as a number" required>
+            </div>
+
             <div class="form-submit">
                 <button type="submit" id="submit-btn">Send Message</button>
             </div>
@@ -228,6 +233,7 @@
                 const subject = document.getElementById('subject').value;
                 const message = document.getElementById('message').value;
                 const website_url = document.getElementById('website_url').value;
+                const captcha = document.getElementById('captcha').value;
 
                 btn.textContent = "Sending...";
                 btn.disabled = true;
@@ -237,7 +243,7 @@
                     const res = await fetch("https://trelawny-backend.onrender.com/api/contact", {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name, email, subject, message, website_url })
+                        body: JSON.stringify({ name, email, subject, message, website_url, captcha })
                     });
                     const data = await res.json();
 
