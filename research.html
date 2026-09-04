@@ -144,6 +144,80 @@
                 gap: 1rem;
             }
         }
+    
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--gold-accent);
+            border-radius: 4px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            color: var(--gold-accent);
+            font-family: 'Cinzel', serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #ccc;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .partnership-banner {
+            background: linear-gradient(135deg, rgba(46, 77, 50, 0.5), rgba(20, 20, 20, 0.9));
+            border-left: 4px solid var(--gold-accent);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border-radius: 0 4px 4px 0;
+            text-align: center;
+        }
+
+        .partnership-banner h3 {
+            color: var(--gold-accent);
+            margin-top: 0;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .partnership-banner p {
+            font-size: 1.15rem;
+            color: #e0e0e0;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+        
+        .hero-image-container {
+            text-align: center; 
+            margin-bottom: 3rem;
+        }
+        
+        .hero-image-container img {
+            max-width: 100%; 
+            height: auto; 
+            border: 1px solid var(--gold-accent); 
+            border-radius: 8px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
     </style>
 </head>
 
@@ -193,15 +267,41 @@
     <!-- RESEARCH CONTENT -->
     <div class="research-container">
 
-        <div class="ai-status-panel">
-            <div class="ai-status-icon">⚙️</div>
-            <div class="ai-status-text">
-                <h2>The Institute's AI Historian (Local Mode)</h2>
-                <p>We have digitized and vectorized thousands of pages of rare historical texts, military journals, and
-                    parliamentary records. Below is a live feed of actual queries and historical evidence recovered by
-                    our local AI agent, completely bypassing traditional, colonial revisionism.</p>
+        
+        <div class="hero-image-container">
+            <img src="Pictures/ai_stats.png" alt="AI Library Stats Dashboard">
+        </div>
+        
+        <h2 class="section-heading" style="text-align: center; margin-bottom: 2rem;">The Local RAG Database</h2>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-value">523</div>
+                <div class="stat-label">Authors</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">842</div>
+                <div class="stat-label">Books</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">340,061</div>
+                <div class="stat-label">Pages</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">1,372,323</div>
+                <div class="stat-label">Chunks</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">1,372,323</div>
+                <div class="stat-label">Embeddings</div>
             </div>
         </div>
+
+        <div class="partnership-banner">
+            <h3>An Unprecedented Archival Collection</h3>
+            <p>This massive, vectorized AI collection covers <strong>strictly African and Caribbean history</strong>, with a deep concentration on the <strong>Maroons of Jamaica</strong>. We invite universities, historical societies, and researchers to partner with us to grow this database, uncover the truth, and rewrite colonial history.</p>
+        </div>
+
 
         <h2 class="section-heading">Recent Recoveries</h2>
 
